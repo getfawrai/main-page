@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FawrAI — We turn strangers into clients</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="FawrAI is a fully managed AI-powered sales and client relationship system built for aesthetic and medical clinics in Dubai and the GCC.">
+
+<!-- Google Fonts: Montserrat (headlines) + Inter (body) + JetBrains Mono (mono) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+/* ============================================================
+   FawrAI Design System — Colors + Type (inlined)
+   Brand Book v1.0 · April 2026
+   ============================================================ */
+:root {
+  /* Brand palette */
+  --fawr-navy:       #0D2137;
+  --fawr-charcoal:   #2C2C2C;
+  --fawr-sage:       #8A9E85;
+  --fawr-gold:       #D4AF6E;
+  --fawr-offwhite:   #F8F5F0;
+
+  /* Derived tints */
+  --fawr-navy-90:    #1A3149;
+  --fawr-navy-80:    #2A4560;
+  --fawr-sage-70:    #AEBDAB;
+  --fawr-sage-20:    #E6ECE4;
+  --fawr-gold-90:    #C59F5D;
+  --fawr-gold-20:    #F1E4CE;
+  --fawr-offwhite-2: #EFEAE1;
+  --fawr-line:       #E4DED2;
+  --fawr-line-dark:  #1F3650;
+
+  /* Semantic tokens */
+  --fg-1:          var(--fawr-charcoal);
+  --fg-2:          #5A5A5A;
+  --fg-3:          #8A8A8A;
+  --fg-on-navy:    var(--fawr-offwhite);
+  --fg-on-navy-dim:#9DB0C2;
+  --accent:        var(--fawr-gold);
+  --support:       var(--fawr-sage);
+  --bg-page:       var(--fawr-offwhite);
+  --bg-card:       #FFFFFF;
+  --bg-sunken:     var(--fawr-offwhite-2);
+  --bg-navy:       var(--fawr-navy);
+
+  /* Type families */
+  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Type scale */
+  --fs-display: 56px;
+  --fs-h1:      44px;
+  --fs-h2:      32px;
+  --fs-h3:      24px;
+  --fs-h4:      20px;
+  --fs-body-lg: 18px;
+  --fs-body:    16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 12px;
+  --lh-tight:   1.15;
+  --lh-snug:    1.3;
+  --lh-body:    1.55;
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-eyebrow: 0.16em;
+
+  /* Spacing */
+  --space-1:  4px;  --space-2:  8px;  --space-3: 12px;
+  --space-4: 16px;  --space-5: 24px;  --space-6: 32px;
+  --space-7: 48px;  --space-8: 64px;  --space-9: 96px;
+  --space-10: 128px;
+
+  /* Radii */
+  --radius-xs:  2px;
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* Elevation (soft, warm, navy-tinted) */
+  --shadow-xs: 0 1px 2px rgba(13,33,55,0.04);
+  --shadow-sm: 0 2px 8px rgba(13,33,55,0.06);
+  --shadow-md: 0 8px 24px rgba(13,33,55,0.08);
+  --shadow-lg: 0 20px 48px rgba(13,33,55,0.12);
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2,0.6,0.2,1);
+  --ease-emphasis: cubic-bezier(0.22,0.9,0.18,1);
+  --dur-fast:  140ms;
+  --dur-base:  220ms;
+  --dur-slow:  360ms;
+
+  /* Page-level aliases used inline */
+  --hero-bg:     #F8F5F0;
+  --hero-bg-2:   #EFEAE1;
+  --ink:         #0D2137;
+  --ink-2:       #2C2C2C;
+  --ink-dim:     rgba(13,33,55,0.55);
+  --sage-ink:    #5E7558;
+  --sage-soft:   #E6ECE4;
+  --gold:        #D4AF6E;
+  --card-dark:   #0D2137;
+  --card-stroke: rgba(255,255,255,0.07);
+  --on-dark:     #F8F5F0;
+  --on-dark-dim: #9DB0C2;
+  --line:        #E4DED2;
+}
+
+/* ===== RESET + BASE ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--hero-bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--fawr-gold); color: var(--fawr-navy); }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; gap: 32px;
+  padding: 22px 40px;
+  background: transparent;
+  transition: background var(--dur-base) var(--ease-standard),
+              border-color var(--dur-base) var(--ease-standard);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(248,245,240,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(13,33,55,0.06);
+}
+.nav .logo { display: flex; align-items: center; text-decoration: none; }
+.nav .logo img { height: 26px; width: auto; display: block; }
+
+.nav .links {
+  display: flex; gap: 30px; margin-left: auto; align-items: center;
+}
+.nav .links a {
+  font-size: 13.5px; font-weight: 500;
+  color: var(--ink); text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+.nav .links a:hover { color: var(--sage-ink); }
+.nav .cta {
+  font-size: 13.5px; font-weight: 600;
+  background: var(--ink); color: var(--hero-bg);
+  padding: 10px 20px; border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background var(--dur-base) var(--ease-standard);
+}
+.nav .cta:hover { background: var(--sage-ink); }
+.nav .burger {
+  display: none; margin-left: auto;
+  width: 40px; height: 40px;
+  background: transparent; border: none;
+  padding: 0; cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.nav .burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--ink); position: relative;
+}
+.nav .burger span::before,
+.nav .burger span::after {
+  content: ''; position: absolute; left: 0; right: 0;
+  height: 1.5px; background: var(--ink);
+}
+.nav .burger span::before { top: -6px; }
+.nav .burger span::after  { top:  6px; }
+
+/* ===== MOBILE DRAWER ===== */
+.scrim {
+  position: fixed; inset: 0;
+  background: rgba(13,33,55,0.18);
+  z-index: 24; opacity: 0; pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+.scrim.open { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed; top: 69px; left: 0; right: 0;
+  background: var(--ink);
+  padding: 8px 24px 16px;
+  z-index: 25;
+  opacity: 0; pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity var(--dur-base) var(--ease-standard),
+              transform var(--dur-base) var(--ease-standard);
+  box-shadow: 0 12px 32px rgba(13,33,55,0.18);
+}
+.drawer.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.drawer a {
+  font-family: var(--font-body); font-weight: 500; font-size: 15px;
+  letter-spacing: 0.01em; color: rgba(248,245,240,0.85);
+  padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  text-decoration: none; display: block;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+.drawer a:hover { color: var(--gold); }
+.drawer a:last-child { border-bottom: 0; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 56px 40px 120px;
+  max-width: 1100px; margin: 0 auto;
+}
+.hero-left { padding-top: 36px; max-width: 880px; }
+
+.pill-sage {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--sage-ink);
+  padding: 6px 14px;
+  border: 1px solid var(--sage-soft);
+  background: rgba(199,212,192,0.22);
+  border-radius: var(--radius-pill);
+  display: inline-block; margin-bottom: 36px;
+}
+
+h1.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(54px, 6.4vw, 96px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0; max-width: 16ch;
+  text-wrap: pretty;
+}
+h1.hero-title .line2 {
+  display: block; font-style: italic; font-weight: 300;
+  color: var(--sage-ink);
+}
+
+.lede {
+  font-size: 18px; font-weight: 400;
+  line-height: var(--lh-body);
+  color: var(--ink-2);
+  max-width: 56ch; margin: 32px 0 32px;
+}
+.lede .chip-inline {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 13px;
+  background: rgba(199,212,192,0.35); color: var(--sage-ink);
+  padding: 3px 10px; border-radius: var(--radius-pill);
+  margin: 0 2px; font-weight: 500; white-space: nowrap;
+}
+
+.hero-cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn-dark {
+  font-size: 14px; font-weight: 600;
+  background: var(--ink); color: var(--hero-bg);
+  border: none; padding: 14px 24px;
+  border-radius: var(--radius-pill); cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background var(--dur-base) var(--ease-standard);
+}
+.btn-dark:hover { background: var(--sage-ink); color: var(--hero-bg); }
+.btn-dark:active { transform: scale(0.98); }
+.btn-ghost {
+  font-size: 14px; font-weight: 500;
+  background: transparent; color: var(--ink);
+  border: 1px solid rgba(13,33,55,0.18); padding: 14px 24px;
+  border-radius: var(--radius-pill); cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color var(--dur-base) var(--ease-standard);
+}
+.btn-ghost:hover { border-color: var(--ink); }
+.btn-ghost:active { transform: scale(0.98); }
+
+/* ===== HOW IT WORKS ===== */
+section.how {
+  background: var(--hero-bg-2);
+  padding: 120px 40px;
+  border-top: 1px solid rgba(13,33,55,0.06);
+}
+section.how .wrap { max-width: 1320px; margin: 0 auto; }
+section.how .eye {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-ink); margin-bottom: 18px;
+}
+section.how h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.05; letter-spacing: -0.02em;
+  color: var(--ink); margin: 0 0 64px;
+  max-width: 24ch; text-wrap: balance;
+}
+section.how h2 em { font-style: italic; font-weight: 300; color: var(--sage-ink); }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { border-top: 1px solid rgba(13,33,55,0.16); padding-top: 28px; }
+.step .n {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-ink); margin-bottom: 12px;
+}
+.step h4 {
+  font-family: var(--font-display); font-weight: 400; font-size: 26px;
+  letter-spacing: -0.01em; color: var(--ink);
+  margin: 0 0 12px; max-width: 18ch;
+}
+.step p {
+  font-size: 14.5px; line-height: 1.6; color: var(--ink-2);
+  margin: 0; max-width: 38ch;
+}
+
+/* ===== DIFFERENTIATOR ===== */
+section.diff {
+  padding: 120px 40px;
+  background: var(--hero-bg);
+}
+section.diff .wrap { max-width: 1100px; margin: 0 auto; }
+section.diff .eye {
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-ink); margin-bottom: 18px;
+}
+section.diff h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.06; letter-spacing: -0.02em;
+  color: var(--ink); margin: 0 0 48px;
+  max-width: 22ch; text-wrap: balance;
+}
+section.diff h2 em { font-style: italic; font-weight: 300; color: var(--sage-ink); }
+
+.diff-table {
+  border: 1px solid rgba(13,33,55,0.1);
+  border-radius: 24px; overflow: hidden;
+  background: rgba(255,255,255,0.5);
+}
+.diff-table .row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid rgba(13,33,55,0.08);
+}
+.diff-table .row:last-child { border-bottom: 0; }
+.diff-table .row > div { padding: 22px 28px; font-size: 16px; line-height: 1.45; }
+.diff-table .row > div:first-child { color: var(--ink); font-weight: 500; }
+.diff-table .row > div:last-child {
+  color: var(--ink-dim); border-left: 1px solid rgba(13,33,55,0.08);
+  text-decoration: line-through;
+  text-decoration-color: rgba(13,33,55,0.25);
+}
+.diff-table .head { background: rgba(199,212,192,0.28); }
+.diff-table .head > div {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-ink); text-decoration: none;
+}
+.diff-table .head > div:last-child { color: var(--ink-dim); }
+
+/* ===== BOTTOM CTA ===== */
+section.bottom-cta {
+  background: var(--hero-bg);
+  padding: 88px 40px 100px;
+  border-top: 1px solid rgba(13,33,55,0.06);
+}
+section.bottom-cta .wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+section.bottom-cta h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.1; letter-spacing: -0.015em;
+  color: var(--ink); margin: 0; max-width: 18ch; text-wrap: balance;
+}
+
+/* ===== BOOK FORM ===== */
+section.book {
+  background: var(--hero-bg-2);
+  padding: 96px 40px 120px;
+  border-top: 1px solid rgba(13,33,55,0.06);
+}
+section.book .wrap {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 64px; align-items: start;
+}
+section.book .intro { padding-top: 12px; }
+section.book h2.book-title {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(34px, 3.8vw, 48px);
+  line-height: 1.08; letter-spacing: -0.02em;
+  color: var(--ink); margin: 24px 0 0;
+  max-width: 14ch; text-wrap: pretty;
+}
+section.book h2.book-title em { font-style: italic; font-weight: 300; color: var(--sage-ink); }
+section.book form {
+  background: #fff; border: 1px solid rgba(13,33,55,0.08);
+  border-radius: 24px; padding: 36px 32px;
+  box-shadow: var(--shadow-md);
+}
+section.book label { display: block; margin-bottom: 20px; }
+section.book label .l {
+  display: block; font-size: 13px; font-weight: 600;
+  color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em;
+}
+section.book input,
+section.book textarea,
+section.book select {
+  width: 100%;
+  font-family: var(--font-body); font-size: 15px;
+  padding: 14px 16px;
+  background: var(--hero-bg-2);
+  border: 1px solid transparent; border-radius: var(--radius-lg);
+  color: var(--ink); appearance: none;
+  transition: border-color var(--dur-fast), background var(--dur-fast);
+}
+section.book input:focus,
+section.book textarea:focus,
+section.book select:focus {
+  outline: none; border-color: var(--sage-ink); background: #fff;
+}
+section.book textarea { resize: vertical; min-height: 96px; }
+section.book .check {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--ink-2);
+  margin-bottom: 24px; line-height: 1.5;
+}
+section.book .check input[type="checkbox"] {
+  width: 18px; height: 18px; accent-color: var(--ink); margin-top: 1px; flex-shrink: 0;
+}
+section.book button.submit {
+  width: 100%;
+  font-family: var(--font-body); font-size: 15px; font-weight: 600;
+  background: var(--ink); color: var(--hero-bg);
+  border: none; padding: 16px 24px;
+  border-radius: var(--radius-pill); cursor: pointer;
+  transition: background var(--dur-base) var(--ease-standard);
+}
+section.book button.submit:hover { background: var(--sage-ink); }
+section.book button.submit:active { transform: scale(0.98); }
+section.book .sent { grid-column: 1 / -1; max-width: 520px; padding: 32px 0; }
+section.book .sent h2 {
+  font-family: var(--font-display); font-weight: 500; font-size: 36px;
+  line-height: 1.1; margin: 0 0 16px; color: var(--ink);
+  letter-spacing: -0.015em;
+}
+section.book .sent p { font-size: 16px; line-height: 1.6; color: var(--ink-2); max-width: 38ch; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--hero-bg-2);
+  padding: 60px 40px 40px;
+  border-top: 1px solid rgba(13,33,55,0.06);
+}
+footer .wrap {
+  max-width: 1320px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: flex-end; flex-wrap: wrap; gap: 32px;
+}
+footer .l img { height: 22px; width: auto; display: block; margin-bottom: 12px; }
+footer .l p { font-size: 13px; color: rgba(13,33,55,0.55); margin: 0; }
+footer .r {
+  display: flex; gap: 28px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(13,33,55,0.55);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  .nav .links, .nav .cta { display: none; }
+  .nav .burger { display: inline-flex; }
+  .nav { padding: 16px 24px; }
+  .hero { padding: 24px 24px 64px; }
+  h1.hero-title { font-size: clamp(42px, 11vw, 64px); }
+  section.how, section.diff { padding: 80px 24px; }
+  section.book { padding: 56px 24px 80px; }
+  section.book .wrap { grid-template-columns: 1fr; gap: 24px; }
+  section.book form { padding: 28px 24px; border-radius: 22px; }
+  section.proof { padding: 48px 24px; }
+  section.proof .wrap { grid-template-columns: 1fr; gap: 40px; }
+  section.testimonial { padding: 72px 24px; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+  .diff-table .row { grid-template-columns: 1fr; }
+  .diff-table .row > div:last-child { border-left: 0; border-top: 1px solid rgba(13,33,55,0.06); }
+  section.bottom-cta { padding: 64px 24px; }
+  footer { padding: 44px 24px 28px; }
+}
+@media (max-width: 480px) {
+  h1.hero-title { font-size: clamp(36px, 12vw, 54px); }
+  section.how h2, section.diff h2 { font-size: clamp(32px, 9vw, 44px); }
+  section.proof .stat .num { font-size: clamp(40px, 12vw, 56px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <a href="#" class="logo"><img src="logo-dark.png" alt="FawrAI"></a>
+  <div class="links">
+    <a href="#how">How it works</a>
+    <a href="#diff">Why FawrAI</a>
+    <a href="#book">Contact us</a>
+  </div>
+  <a href="#book" class="cta">Book a strategy call</a>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+</nav>
+
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a href="#book">Contact us</a>
+  <a href="#book">Book a strategy call</a>
+  <a href="#how">How it works</a>
+  <a href="#diff">Why FawrAI</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="pill-sage">A super intelligent sales system, disguised as a conversation</span>
+
+    <h1 class="hero-title">
+      We turn strangers into clients.
+      <span class="line2">And clients into loyal ones.</span>
+    </h1>
+
+    <p class="lede">
+      Your clinic already pays for the leads.<br>
+      FawrAI handles the <span class="chip-inline">qualify → follow-up → close → retain</span> as one continuous sales conversation — in the background, in your voice, 24 hours a day.
+    </p>
+
+    <div class="hero-cta-row">
+      <a href="#book" class="btn-dark">Book a strategy call →</a>
+      <a href="#how" class="btn-ghost">How it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="eye">How it works</div>
+    <h2>Not a chatbot. <em>A sales system disguised as a conversation.</em></h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="n">01 · Setup</div>
+        <h4>We study your clinic.</h4>
+        <p>Your services, your voice, your patients. The way your best staff talk. We learn it all before a single message goes out.</p>
+      </div>
+      <div class="step">
+        <div class="n">02 · Build</div>
+        <h4>We build and run the system.</h4>
+        <p>FawrAI lives inside the channels your patients already use. WhatsApp, DM, email. The clinic never touches the system.</p>
+      </div>
+      <div class="step">
+        <div class="n">03 · Grow</div>
+        <h4>Your clinic sees the bookings.</h4>
+        <p>Qualified, ready, and warmed. Your team handles the in-clinic experience. FawrAI handles everything that gets them there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIFFERENTIATOR ===== -->
+<section class="diff" id="diff">
+  <div class="wrap">
+    <div class="eye">Why FawrAI</div>
+    <h2>The market is full of chatbots. <em>We differentiate by being clear about what FawrAI isn't.</em></h2>
+
+    <div class="diff-table">
+      <div class="row head">
+        <div>FawrAI is</div>
+        <div>FawrAI is not</div>
+      </div>
+      <div class="row">
+        <div>A fully managed system</div>
+        <div>Software the clinic has to run</div>
+      </div>
+      <div class="row">
+        <div>Remembers every conversation</div>
+        <div>FAQ style, scripted</div>
+      </div>
+      <div class="row">
+        <div>Converts the leads you already pay for</div>
+        <div>A lead-generation tool</div>
+      </div>
+      <div class="row">
+        <div>Personalised to each patient</div>
+        <div>Broadcast messages, generic follow-ups</div>
+      </div>
+      <div class="row">
+        <div>Built for GCC</div>
+        <div>One-size-fits-all global tool</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="bottom-cta">
+  <div class="wrap">
+    <h3>Ready to see what the next 90 days look like?</h3>
+    <a href="#book" class="btn-dark">Book a strategy call →</a>
+  </div>
+</section>
+
+<!-- ===== BOOK FORM ===== -->
+<section class="book" id="book">
+  <div class="wrap" id="book-page">
+    <div class="intro">
+      <span class="pill-sage">Book a strategy call</span>
+      <h2 class="book-title">Tell us about your clinic. <em>We'll tell you if FawrAI is a fit.</em></h2>
+    </div>
+
+    <form id="book-form" novalidate>
+      <label>
+        <span class="l">Clinic name</span>
+        <input name="clinic" type="text" placeholder="Noor Aesthetic Clinic" required>
+      </label>
+      <label>
+        <span class="l">Your name</span>
+        <input name="name" type="text" placeholder="Dr. Layla Al-Mansoori" required>
+      </label>
+      <label>
+        <span class="l">Email</span>
+        <input name="email" type="email" placeholder="you@clinic.ae" required>
+      </label>
+      <label>
+        <span class="l">WhatsApp (preferred)</span>
+        <input name="whatsapp" type="tel" placeholder="+971 50 123 4567">
+      </label>
+      <label>
+        <span class="l">Monthly lead volume</span>
+        <select name="leads">
+          <option value="">Select an option</option>
+          <option>Under 100</option>
+          <option>100–200</option>
+          <option>200–500</option>
+          <option>500+</option>
+        </select>
+      </label>
+      <label>
+        <span class="l">What's your biggest bottleneck right now?</span>
+        <textarea name="bottleneck" rows="3" placeholder="One sentence is fine. We'll read every word."></textarea>
+      </label>
+      <div class="check">
+        <input type="checkbox" id="decision" name="decision" checked>
+        <label for="decision" style="margin:0;flex:1;">
+          <span class="l" style="margin:0;font-weight:400;">I have decision-making authority at my clinic.</span>
+        </label>
+      </div>
+      <button class="submit" type="submit">Send — we'll reply inside 24 hours</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="l">
+      <img src="logo-dark.png" alt="FawrAI">
+      <p>fawrai.com · Dubai, UAE · © 2026</p>
+    </div>
+    <div class="r">
+      <span>HELLO@FAWRAI.COM</span>
+      <span>DUBAI</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav blur
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile drawer
+  const burger = document.getElementById('burger');
+  const drawer = document.getElementById('drawer');
+  const scrim  = document.getElementById('scrim');
+  function setOpen(open) {
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    drawer.setAttribute('aria-hidden', String(!open));
+    scrim.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', () => setOpen(!drawer.classList.contains('open')));
+  scrim.addEventListener('click', () => setOpen(false));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+
+  // Close drawer when any nav link is clicked (smooth scroll handles the rest)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => setOpen(false));
+  });
+
+  // Book form — success state
+  const bookForm = document.getElementById('book-form');
+  if (bookForm) {
+    bookForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('book-page').innerHTML =
+        '<div class="sent">' +
+        '<h2>Received. We\'ll be in touch inside 24 hours.</h2>' +
+        '<p>We read every submission. A founder will reply — with a specific answer to your bottleneck, not a calendar link.</p>' +
+        '</div>';
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # FawrAI Website
 
-Static marketing site for FawrAI (single page: hero, Meet Hala, How it works, What you get, Why Hala, Book a strategy call, integrations, footer). Light theme, all sections left-aligned.
+Static marketing site for FawrAI (single page: hero, Meet FawrAI, How it works, What you get, Why FawrAI, Book a strategy call, integrations, footer). Light theme, all sections left-aligned.
 
 ## Files
 

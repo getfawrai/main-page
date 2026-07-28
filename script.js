@@ -62,4 +62,66 @@
     intro.hidden = true;
     success.hidden = false;
   });
+
+  // Hero chat demo — sequenced typing + reply, replayable, plays once in view
+  var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var bubble1 = document.getElementById("bubble1");
+  var typing = document.getElementById("chatTyping");
+  var bubble2 = document.getElementById("bubble2");
+  var replayBtn = document.getElementById("chatReplay");
+  var chatCard = document.getElementById("chatCard");
+  var chatTimers = [];
+
+  function clearChatTimers() {
+    chatTimers.forEach(clearTimeout);
+    chatTimers = [];
+  }
+
+  function playChatDemo() {
+    clearChatTimers();
+    bubble2.classList.remove("is-shown");
+    typing.classList.remove("is-visible");
+    if (reducedMotion) {
+      bubble2.classList.add("is-shown");
+      return;
+    }
+    chatTimers.push(setTimeout(function () { typing.classList.add("is-visible"); }, 500));
+    chatTimers.push(setTimeout(function () {
+      typing.classList.remove("is-visible");
+      bubble2.classList.add("is-shown");
+    }, 1900));
+  }
+
+  replayBtn.addEventListener("click", playChatDemo);
+
+  if (chatCard && "IntersectionObserver" in window) {
+    var played = false;
+    var chatObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !played) {
+          played = true;
+          playChatDemo();
+        }
+      });
+    }, { threshold: 0.5 });
+    chatObserver.observe(chatCard);
+  } else {
+    bubble2.classList.add("is-shown");
+  }
+
+  // Scroll reveal for section-level content blocks (progressive enhancement — see .js class on <html>)
+  var revealEls = document.querySelectorAll(".fw-reveal");
+  if (revealEls.length && "IntersectionObserver" in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+  }
 })();

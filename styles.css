@@ -1,0 +1,6 @@
+/* ============================================================
+   FawrAI Design System — global entry stylesheet
+   Consumers link this ONE file; it pulls in the token + type layer.
+   ============================================================ */
+
+@import url('colors_and_type.css');

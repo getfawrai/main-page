@@ -232,7 +232,7 @@ img { max-width: 100%; }
 .fw-section .lead:last-of-type { margin-bottom: 0; }
 .fw-section .lead-tight { font-size: 14.5px; line-height: 1.6; max-width: 52ch; margin-bottom: 36px; }
 
-/* ---------- Meet Hala ---------- */
+/* ---------- Meet FawrAI ---------- */
 .fw-hala {
   max-width: 1100px;
   margin: 0;
@@ -361,7 +361,7 @@ img { max-width: 100%; }
 }
 .fw-card p { font-size: 13.5px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0; max-width: none; }
 
-/* ---------- Why Hala / diff table ---------- */
+/* ---------- Why FawrAI / diff table ---------- */
 .fw-diff-table {
   border: 1px solid var(--fawr-ink-10);
   border-radius: var(--radius-xl);

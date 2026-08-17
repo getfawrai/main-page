@@ -1,263 +1,108 @@
 /* ============================================================
-   FawrAI Design System — Colors + Type
-   Brand Book v1.0 · April 2026
+   FawrAI Design System — Tokens
+   Brand Book v2.0 · August 2026
    ============================================================ */
 
-/* Fonts loaded via Google Fonts CDN — see fonts/README.md for notes */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 
 :root {
-  /* ---------- Brand palette (exact, from Brand Book §05) ---------- */
-  --fawr-navy:      #0D2137;  /* Deep Navy — primary bg, headers, authority */
-  --fawr-charcoal:  #2C2C2C;  /* Body text. Never pure black */
-  --fawr-sage:      #8A9E85;  /* Sub-headers, wellness, warm support */
-  --fawr-gold:      #D4AF6E;  /* Accent / luxury signal. Use sparingly */
-  --fawr-offwhite:  #F8F5F0;  /* Page bg, card fills. Warmer than white */
+  /* ---------- Core palette (Brand Book §05, exact) ---------- */
+  --fawr-navy:       #0D2137;  /* Deep Navy — authority surfaces, headers, CTA cards */
+  --fawr-charcoal:   #2C2C2C;  /* All body text. Never pure black */
+  --fawr-sage:       #8A9E85;  /* Sub-headers, accents. Ink only */
+  --fawr-gold:       #D4AF6E;  /* One accent per viewport. Never overuse */
+  --fawr-offwhite:   #F8F5F0;  /* Page bg. Warmer than pure white */
 
-  /* ---------- Derived tints & shades (harmonised via oklch) ---------- */
-  --fawr-navy-90:   #1A3149;  /* hover on navy surfaces */
-  --fawr-navy-80:   #2A4560;  /* dividers on navy */
-  --fawr-sage-70:   #AEBDAB;  /* soft sage tint */
-  --fawr-sage-20:   #E6ECE4;  /* sage ghost bg */
-  --fawr-gold-90:   #C59F5D;  /* gold pressed */
-  --fawr-gold-20:   #F1E4CE;  /* gold ghost highlight */
-  --fawr-offwhite-2:#EFEAE1;  /* slightly deeper warm bg */
-  --fawr-line:      #E4DED2;  /* hairline rules on warm bg */
-  --fawr-line-dark: #1F3650;  /* hairline rules on navy */
+  /* ---------- Navy scale ---------- */
+  --fawr-navy-90:    #1A3149;  /* hover */
+  --fawr-navy-80:    #2A4560;  /* dividers */
+  --fawr-on-navy-dim:#9DB0C2;  /* text on navy */
 
-  /* ---------- Semantic foreground / background ---------- */
-  --fg-1: var(--fawr-charcoal);   /* primary body */
-  --fg-2: #5A5A5A;                /* secondary text */
-  --fg-3: #8A8A8A;                /* tertiary / captions */
-  --fg-on-navy:     var(--fawr-offwhite);
-  --fg-on-navy-dim: #9DB0C2;
-  --accent:         var(--fawr-gold);
-  --support:        var(--fawr-sage);
+  /* ---------- Sage scale ---------- */
+  --fawr-sage-70:    #AEBDAB;  /* soft tint */
+  --fawr-sage-20:    #E6ECE4;  /* ghost bg */
 
-  --bg-page:  var(--fawr-offwhite);
-  --bg-card:  #FFFFFF;
-  --bg-sunken:var(--fawr-offwhite-2);
-  --bg-navy:  var(--fawr-navy);
+  /* ---------- Gold / warm scale ---------- */
+  --fawr-gold-90:    #C59F5D;  /* pressed */
+  --fawr-gold-20:    #F1E4CE;  /* highlight */
+  --fawr-offwhite-2: #EFEAE1;  /* panels */
 
-  /* ---------- Status (derived, kept tonal to brand) ---------- */
-  --status-success: #6B8F6A;  /* deeper sage */
-  --status-warning: #C59F5D;  /* gold-90 */
-  --status-danger:  #B5554A;  /* terracotta, warm complement to navy */
-  --status-info:    #4A7A9E;  /* muted navy-blue */
+  /* ---------- Semantic ---------- */
+  --fg-1:            var(--fawr-charcoal);
+  --fg-on-navy:       var(--fawr-offwhite);
+  --fg-on-navy-dim:   var(--fawr-on-navy-dim);
+  --bg-page:          var(--fawr-offwhite);
+  --bg-panel:         var(--fawr-offwhite-2);
+  --bg-navy:          var(--fawr-navy);
+  --bg-navy-card:     #16273b;
+  --accent:           var(--fawr-gold);
+  --support:          var(--fawr-sage);
 
   /* ---------- Type families ---------- */
-  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Geist', 'Helvetica Neue', Arial, sans-serif;
   --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
-  /* ---------- Type scale (digital — Brand Book §05) ---------- */
-  /* Montserrat headlines, Inter body. Never swap. */
-  --fs-display: 56px;
-  --fs-h1:      44px;
-  --fs-h2:      32px;
-  --fs-h3:      24px;
-  --fs-h4:      20px;
-  --fs-body-lg: 18px;
-  --fs-body:    16px;  /* Digital body 14–16px per Brand Book */
-  --fs-body-sm: 14px;
-  --fs-caption: 12px;
-
-  --lh-tight: 1.15;  /* @kind other */
-  --lh-snug:  1.3;   /* @kind other */
-  --lh-body:  1.55;  /* @kind other */ /* 1.5–1.6x per Brand Book */
-  --lh-loose: 1.7;   /* @kind other */
-
-  --tracking-display: -0.02em;
-  --tracking-heading: -0.01em;
-  --tracking-body:    0;
-  --tracking-eyebrow: 0.16em;  /* all-caps small labels */
+  /* ---------- Type scale (Brand Book §06, exact) ---------- */
+  --fs-display: 44px; --fw-display: 200; --tr-display: -0.025em;
+  --fs-h1:      40px; --fw-h1: 300;      --tr-h1: -0.022em;
+  --fs-h2:      28px; --fw-h2: 300;      --tr-h2: -0.018em;
+  --fs-h3:      20px; --fw-h3: 400;      --tr-h3: -0.012em;
+  --fs-body:    15px; --fw-body: 400;    --tr-body: 0em;
+  --fs-caption: 12.5px; --fw-caption: 300; --tr-caption: 0em;
+  --fs-eyebrow: 10px; --fw-eyebrow: 500; --tr-eyebrow: 0.22em;
 
   /* ---------- Spacing (4px base) ---------- */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 96px;
-  --space-10: 128px;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 64px;
 
-  /* ---------- Radii — premium brand uses restrained rounding ---------- */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 20px;
-  --radius-pill: 999px;
+  /* ---------- Radii — restrained, premium ---------- */
+  --radius-sm: 4px; --radius-md: 8px; --radius-lg: 12px; --radius-pill: 999px;
 
-  /* ---------- Elevation — soft, warm, low-contrast ---------- */
-  --shadow-xs: 0 1px 2px rgba(13, 33, 55, 0.04);
+  /* ---------- Elevation — soft, warm ---------- */
   --shadow-sm: 0 2px 8px rgba(13, 33, 55, 0.06);
   --shadow-md: 0 8px 24px rgba(13, 33, 55, 0.08);
-  --shadow-lg: 0 20px 48px rgba(13, 33, 55, 0.12);
-  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.5);
-
-  /* ---------- Motion ---------- */
-  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1);   /* @kind other */
-  --ease-emphasis: cubic-bezier(0.22, 0.9, 0.18, 1);  /* @kind other */
-  --dur-fast:   140ms;  /* @kind other */
-  --dur-base:   220ms;  /* @kind other */
-  --dur-slow:   360ms;  /* @kind other */
 }
-
-/* ============================================================
-   Semantic element styles
-   Writing feels premium, calm, sharp (Brand Book §04)
-   ============================================================ */
 
 body {
   font-family: var(--font-body);
   font-size: var(--fs-body);
-  line-height: var(--lh-body);
+  font-weight: var(--fw-body);
+  line-height: 1.55;
   color: var(--fg-1);
   background: var(--bg-page);
-  font-feature-settings: "cv11", "ss01", "ss03";
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-display);
-  color: var(--fawr-navy);
-  letter-spacing: var(--tracking-heading);
-  line-height: var(--lh-tight);
-  font-weight: 700;
-  margin: 0;
-  text-wrap: balance;
-}
-
-h1 { font-size: var(--fs-h1); letter-spacing: var(--tracking-display); font-weight: 700; }
-h2 { font-size: var(--fs-h2); font-weight: 700; }
-h3 { font-size: var(--fs-h3); font-weight: 600; }
-h4 { font-size: var(--fs-h4); font-weight: 600; }
-
-p {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
-  color: var(--fg-1);
-  margin: 0 0 var(--space-4);
-  text-wrap: pretty;
-  max-width: 64ch;
-}
-
-small, .caption {
-  font-size: var(--fs-caption);
-  color: var(--fg-3);
-  letter-spacing: 0.01em;
-}
-
-.eyebrow {
-  font-family: var(--font-body);
-  font-size: var(--fs-caption);
-  text-transform: uppercase;
-  letter-spacing: var(--tracking-eyebrow);
-  font-weight: 600;
-  color: var(--fawr-sage);
-}
+h1, h2, h3 { font-family: var(--font-display); color: var(--fawr-navy); margin: 0; }
+h1 { font-size: var(--fs-h1); font-weight: var(--fw-h1); letter-spacing: var(--tr-h1); }
+h2 { font-size: var(--fs-h2); font-weight: var(--fw-h2); letter-spacing: var(--tr-h2); }
+h3 { font-size: var(--fs-h3); font-weight: var(--fw-h3); letter-spacing: var(--tr-h3); }
 
 .display {
   font-family: var(--font-display);
   font-size: var(--fs-display);
-  font-weight: 700;
-  letter-spacing: var(--tracking-display);
-  line-height: var(--lh-tight);
+  font-weight: var(--fw-display);
+  letter-spacing: var(--tr-display);
   color: var(--fawr-navy);
 }
 
-code, pre, .mono {
-  font-family: var(--font-mono);
-  font-size: 0.92em;
+p { font-size: var(--fs-body); color: var(--fg-1); margin: 0 0 var(--space-4); }
+
+.caption {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-caption);
+  font-style: italic;
+  color: var(--fawr-sage);
 }
 
-a {
-  color: var(--fawr-navy);
-  text-decoration-color: var(--fawr-gold);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  transition: color var(--dur-fast) var(--ease-standard);
-}
-a:hover { color: var(--fawr-gold); }
-
-hr {
-  border: 0;
-  height: 1px;
-  background: var(--fawr-line);
-  margin: var(--space-6) 0;
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-eyebrow);
+  letter-spacing: var(--tr-eyebrow);
+  text-transform: uppercase;
+  color: var(--fawr-sage);
 }
 
-/* A tiny gold divider — used as a "section anchor" in editorial layouts */
-.gold-rule {
-  width: 48px;
-  height: 2px;
-  background: var(--fawr-gold);
-  border: 0;
-  margin: 0;
-}
-
-::selection {
-  background: var(--fawr-gold);
-  color: var(--fawr-navy);
-}
-
-/* ============================================================
-   Marketing-site mobile responsive overrides
-   Breakpoints: <=900px (tablet), <=640px (phone)
-   ============================================================ */
-
-@media (max-width: 900px) {
-  /* Section padding */
-  .fw-section { padding: 56px 28px !important; }
-  .fw-hero { padding: 48px 28px 64px !important; }
-  .fw-book { padding: 48px 28px !important; }
-
-  /* Nav */
-  .fw-nav { padding: 14px 20px !important; gap: 12px !important; }
-  .fw-nav-links { display: none !important; }
-  .fw-nav-cta { display: none !important; }
-  .fw-nav-burger { display: inline-flex !important; }
-
-  /* Grids collapse to single column */
-  .fw-grid-3 { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .fw-book-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .fw-footer-grid { gap: 32px !important; padding-bottom: 28px !important; }
-  .fw-footer { padding: 40px 28px 24px !important; }
-  .fw-footer-baseline { flex-direction: column !important; align-items: flex-start !important; }
-
-  /* Differentiator table stacks */
-  .fw-diff-table .fw-diff-head { display: none !important; }
-  .fw-diff-table .fw-diff-row { grid-template-columns: 1fr !important; }
-  .fw-diff-table .fw-diff-row > div { border-left: none !important; padding: 14px 18px !important; font-size: 14px !important; }
-  .fw-diff-table .fw-diff-row > div:first-child { border-top: 1px solid var(--fawr-line); padding-top: 16px !important; }
-  .fw-diff-table .fw-diff-row > div:last-child { padding-bottom: 16px !important; opacity: 0.75; }
-
-  /* Type scale — shrink all the big inline font-sizes */
-  .fw-section h1, .fw-section h2 { font-size: clamp(26px, 7vw, 36px) !important; line-height: 1.18 !important; letter-spacing: -0.015em !important; }
-  .fw-hero h1 { font-size: clamp(32px, 8.5vw, 44px) !important; line-height: 1.1 !important; }
-  .fw-section p, .fw-section blockquote { font-size: 15px !important; line-height: 1.6 !important; }
-  .fw-hero p { font-size: 16px !important; }
-  .fw-testimonial blockquote { font-size: 20px !important; line-height: 1.4 !important; }
-
-  /* Huge stat numbers */
-  .fw-proof .fw-grid-3 > div > div:first-child { font-size: 54px !important; }
-  .fw-hero .eyebrow, .fw-section .eyebrow { font-size: 11px !important; }
-  .fw-hero > div > div:last-child { flex-wrap: wrap !important; gap: 14px 24px !important; margin-top: 48px !important; }
-
-  /* Buttons stretch to usable size */
-  .fw-section button { font-size: 15px !important; padding: 14px 22px !important; }
-}
-
-@media (max-width: 480px) {
-  .fw-section { padding: 44px 22px !important; }
-  .fw-hero { padding: 40px 22px 52px !important; }
-  .fw-hero h1 { font-size: clamp(28px, 9vw, 38px) !important; }
-  .fw-section h1, .fw-section h2 { font-size: clamp(24px, 8vw, 30px) !important; }
-  .fw-proof .fw-grid-3 > div > div:first-child { font-size: 46px !important; }
-  .fw-testimonial blockquote { font-size: 18px !important; }
-}
+.gold-rule { width: 48px; height: 2px; background: var(--fawr-gold); border: 0; }

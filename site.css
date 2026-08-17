@@ -1,0 +1,174 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--fawr-offwhite); }
+a { color: inherit; text-decoration: none; }
+.fw-nav { display: flex; align-items: center; justify-content: space-between; padding: 0 64px; height: 68px; border-bottom: 1px solid rgba(13,33,55,0.08); background: var(--fawr-offwhite); position: sticky; top: 0; z-index: 100; }
+.fw-nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+.fw-nav-links a { font-family: var(--font-body); font-size: 13px; color: var(--fawr-charcoal); }
+.fw-nav-links a:hover { color: var(--fawr-navy); }
+.fw-btn { font-family: var(--font-body); font-size: 13px; font-weight: 500; border-radius: var(--radius-sm); padding: 10px 20px; border: none; cursor: pointer; text-decoration: none; display: inline-block; transition: background 140ms ease; }
+.fw-btn-primary { background: var(--fawr-navy); color: var(--fawr-offwhite); }
+.fw-btn-primary:hover { background: var(--fawr-navy-90); }
+.fw-btn-ghost { background: transparent; color: var(--fawr-navy); border: 1px solid var(--fawr-navy-80); }
+.fw-btn-ghost:hover { background: var(--fawr-sage-20); }
+.fw-btn-accent { background: var(--fawr-gold); color: var(--fawr-navy); }
+.fw-btn-accent:hover { background: var(--fawr-gold-90); }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+.chat-wrap { display: flex; flex-direction: column; gap: 10px; }
+.chat-msg { max-width: 82%; padding: 8px 12px; border-radius: 10px; font-family: var(--font-body); font-size: 12.5px; line-height: 1.45; }
+.chat-msg.in { background: #fff; color: #111; align-self: flex-start; border-top-left-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+.chat-msg.out { background: #d9fdd3; color: #111; align-self: flex-end; border-top-right-radius: 2px; }
+.chat-meta { font-size: 9.5px; color: rgba(0,0,0,0.38); font-family: var(--font-body); font-weight: 400; margin-top: 2px; }
+.chat-meta.right { text-align: right; }
+.step-tab { background: none; border: none; border-left: 3px solid transparent; cursor: pointer; text-align: left; padding: 16px 24px; transition: border-color 160ms, background 160ms; font-family: var(--font-body); width: 100%; display: block; border-bottom: 1px solid rgba(13,33,55,0.06); }
+.step-tab:last-child { border-bottom: none; }
+.step-tab.active { border-left-color: var(--fawr-navy); background: var(--fawr-offwhite); }
+.step-tab.active .step-title { color: var(--fawr-navy); }
+.step-num { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); margin-bottom: 5px; font-family: var(--font-body); }
+.step-title { font-family: var(--font-display); font-size: 13.5px; font-weight: 400; color: var(--fawr-charcoal); line-height: 1.3; }
+
+/* ============================================================
+   Animation additions — layout/content/colors untouched above
+   ============================================================ */
+
+/* Step tabs: active indicator + press feedback */
+.step-tab { position: relative; overflow: hidden; }
+.step-tab::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--fawr-navy); transform: scaleY(0); transform-origin: center;
+  transition: transform 260ms cubic-bezier(.22,1,.36,1);
+}
+.step-tab.active::before { transform: scaleY(1); }
+.step-tab .step-num, .step-tab .step-title { transition: transform 220ms ease, color 220ms ease; }
+.step-tab:active .step-title { transform: scale(0.98); }
+.step-tab.active .step-num { color: var(--fawr-navy); }
+.step-tab .ripple {
+  position: absolute; border-radius: 50%; background: rgba(13,33,55,0.12);
+  transform: scale(0); animation: fw-ripple 550ms ease-out forwards; pointer-events: none;
+}
+@keyframes fw-ripple { to { transform: scale(2.6); opacity: 0; } }
+
+/* Step detail panel: fade/slide when switching steps */
+#step-detail-title, #step-detail-body, #step-detail-example, #step-detail-count {
+  animation: fw-step-in 380ms cubic-bezier(.22,1,.36,1);
+}
+@keyframes fw-step-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card icons */
+.fw-card { position: relative; overflow: hidden; }
+.fw-card-icon {
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--fawr-sage-20); margin-bottom: 16px;
+  transition: transform 260ms cubic-bezier(.22,1,.36,1), background 260ms ease;
+}
+.fw-card-icon svg { width: 18px; height: 18px; stroke: var(--fawr-navy); transition: stroke 260ms ease; }
+.fw-card:hover .fw-card-icon { background: var(--fawr-gold-20); transform: translateY(-2px) scale(1.05); }
+.fw-card:hover .fw-card-icon svg { stroke: var(--fawr-navy); }
+.fw-card {
+  transition: transform 260ms cubic-bezier(.22,1,.36,1), box-shadow 260ms ease;
+  will-change: transform;
+}
+.fw-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* Scroll reveal */
+.fw-reveal { opacity: 0; transform: translateY(18px); transition: opacity 620ms cubic-bezier(.22,1,.36,1), transform 620ms cubic-bezier(.22,1,.36,1); }
+.fw-reveal.in-view { opacity: 1; transform: translateY(0); }
+.fw-reveal-stagger.in-view { transition-delay: var(--reveal-delay, 0ms); }
+
+/* Chat animation */
+.chat-msg { opacity: 0; transform: translateY(10px) scale(0.98); transition: opacity 320ms ease, transform 320ms cubic-bezier(.22,1,.36,1); }
+.chat-msg.shown { opacity: 1; transform: translateY(0) scale(1); }
+.chat-typing { display: none; align-items: center; gap: 4px; background: #fff; align-self: flex-start; padding: 10px 14px; border-radius: 10px; border-top-left-radius: 2px; box-shadow: 0 1px 2px rgba(0,0,0,0.08); width: fit-content; }
+.chat-typing.active { display: flex; }
+.chat-typing span { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,0,0,0.35); animation: fw-typing-bounce 1.1s infinite ease-in-out; }
+.chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes fw-typing-bounce { 0%, 60%, 100% { transform: translateY(0); opacity: 0.5; } 30% { transform: translateY(-4px); opacity: 1; } }
+.wa-status-dot { animation: fw-pulse 1.8s infinite ease-in-out; }
+@keyframes fw-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+
+/* Hero + stats gentle entrance */
+.fw-hero-in { animation: fw-hero-in 760ms cubic-bezier(.22,1,.36,1) both; }
+.fw-hero-in.d1 { animation-delay: 60ms; }
+.fw-hero-in.d2 { animation-delay: 140ms; }
+.fw-hero-in.d3 { animation-delay: 220ms; }
+.fw-hero-in.d4 { animation-delay: 300ms; }
+@keyframes fw-hero-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Nav link underline */
+.fw-nav-links a { position: relative; }
+.fw-nav-links a::after {
+  content: ""; position: absolute; left: 0; bottom: -6px; width: 100%; height: 1px;
+  background: var(--fawr-navy); transform: scaleX(0); transform-origin: left;
+  transition: transform 200ms ease;
+}
+.fw-nav-links a:hover::after { transform: scaleX(1); }
+
+/* Buttons: subtle lift */
+.fw-btn { transition: background 140ms ease, transform 160ms ease, box-shadow 160ms ease; }
+.fw-btn:hover { transform: translateY(-1px); }
+.fw-btn:active { transform: translateY(0); }
+.fw-btn-accent:hover { box-shadow: 0 6px 16px rgba(212,175,110,0.35); }
+
+/* Form field focus + submit feedback */
+.fw-field { transition: border-color 160ms ease, box-shadow 160ms ease; }
+.fw-field:focus { border-color: var(--fawr-navy-80) !important; box-shadow: 0 0 0 3px rgba(13,33,55,0.08); }
+.fw-form-status { font-family: var(--font-body); font-size: 13px; min-height: 18px; transition: opacity 200ms ease; }
+.fw-form-status.success { color: #3f6b3f; }
+.fw-form-status.error { color: #a33; }
+.fw-btn-accent[disabled] { opacity: 0.65; cursor: default; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ============================================================
+   Mobile breakpoints — reflow only. Same colors, copy, radii,
+   components as desktop; desktop styles above are untouched.
+   ============================================================ */
+
+@media (max-width: 860px) {
+  .fw-nav { padding: 0 20px; }
+  .fw-nav-links { display: none; }
+  .fw-nav .fw-btn-primary { font-size: 12px; padding: 8px 14px; }
+
+  .section-inner { padding: 0 20px !important; }
+
+  .fw-hero-inner { padding: 64px 20px 56px !important; max-width: 100% !important; }
+  .fw-hero-h1 { font-size: 36px !important; }
+  .fw-hero-h1 span { font-size: 26px !important; }
+  .fw-hero-ctas { flex-wrap: wrap; width: 100%; }
+  .fw-hero-ctas .fw-btn { flex: 1 1 auto; text-align: center; padding: 10px 16px !important; white-space: normal !important; }
+
+  .fw-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .fw-stat-divider { display: none; }
+  .fw-stat-item { padding: 20px 12px !important; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  #step-tabs { grid-template-columns: 1fr !important; }
+  .step-tab { border-left: none !important; border-bottom: 1px solid rgba(13,33,55,0.08) !important; padding: 14px 4px !important; }
+  .step-tab::before { left: 0; top: 0; bottom: auto; width: 100%; height: 3px; transform-origin: left; transform: scaleX(0); }
+  .step-tab.active::before { transform: scaleX(1); }
+
+  .fw-step-detail-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+  .fw-cards-grid { grid-template-columns: 1fr !important; }
+
+  .fw-why-grid { grid-template-columns: 1fr !important; }
+
+  .fw-integrations-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .fw-chat-card { width: 100% !important; max-width: 320px; margin: 0 auto; }
+
+  .fw-contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+  .fw-footer { padding: 28px 20px !important; }
+  .fw-footer-inner { flex-direction: column !important; gap: 16px; text-align: center; }
+}
+
+@media (max-width: 420px) {
+  .fw-hero-h1 { font-size: 30px !important; }
+  .fw-hero-h1 span { font-size: 22px !important; }
+  .fw-stats-grid { grid-template-columns: 1fr !important; }
+}

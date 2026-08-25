@@ -19,6 +19,7 @@ a { color: inherit; text-decoration: none; }
   .fw-nav { padding: 0 20px !important; }
   .fw-nav-links { display: none !important; }
   .fw-nav-cta { display: none !important; }
+  .fw-logo-nav { height: 12px !important; }
   .section-inner { padding: 0 20px !important; }
   .hero-inner { padding: 56px 20px 48px !important; max-width: 100% !important; }
   .hero-inner h1 { font-size: 33px !important; }

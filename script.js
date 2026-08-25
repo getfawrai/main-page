@@ -1,13 +1,37 @@
 (function () {
   "use strict";
 
+  /* ---------------- Mobile burger menu ---------------- */
+  var burger = document.getElementById("fw-burger");
+  var mobileMenu = document.getElementById("fw-mobile-menu");
+
+  function closeMobileMenu() {
+    burger.classList.remove("open");
+    burger.setAttribute("aria-expanded", "false");
+    mobileMenu.classList.remove("open");
+  }
+
+  if (burger && mobileMenu) {
+    burger.addEventListener("click", function () {
+      var isOpen = mobileMenu.classList.toggle("open");
+      burger.classList.toggle("open", isOpen);
+      burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    mobileMenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", closeMobileMenu);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMobileMenu();
+    });
+  }
+
   /* ---------------- Step tabs (action journey) ---------------- */
   var steps = [
-    { num: "01", title: "Enquiries, answered", detail: "Every message met with a real, qualified conversation on WhatsApp, Instagram, SMS or your website the moment it lands. No waiting. No missed leads.", example: '"Hi, I saw your Botox post. Do you have anything free this weekend?"' },
-    { num: "02", title: "Follow-ups, personalised", detail: 'Timed, personal outreach so a "maybe later" never turns into silence. FawrAI follows up at the right moment, in the right tone, with the right message.', example: '"Sara, just checking in. Saturday at 11am is still available if you would like to book."' },
-    { num: "03", title: "Objections, handled", detail: "Real answers on price, timing and hesitation in the moment, without a hand-off to your team. Patients get the clarity they need to say yes. Hand-offs to your staff only when it matters and when necesary.", example: '"Price is a question. Hesitation is a feeling. FawrAI handles both before they become a reason to leave."' },
-    { num: "04", title: "Leads, converted", detail: "The appointment goes straight onto your calendar, confirmed and booked. FawrAI collects everything needed and hands it off without friction.", example: '"Your appointment is confirmed for Saturday 18 October at 11am. See you then."' },
-    { num: "05", title: "Clients, retained", detail: "Reaches out when it is time to return, and books the next visit before they think to look elsewhere. Every client relationship deepens over time.", example: '"Hi Sara. It has been 3 months since your last visit. Ready to touch up your botox?"' }
+    { num: "01", title: "Enquiries, Answered", detail: "Every message met with a real, qualified conversation on WhatsApp, Instagram, SMS or your website the moment it lands. No waiting. No missed leads.", example: '"Hi, I saw your Botox post. Do you have anything free this weekend?"' },
+    { num: "02", title: "Follow-ups, Personalised", detail: 'Timed, personal outreach so a "maybe later" never turns into silence. FawrAI follows up at the right moment, in the right tone, with the right message.', example: '"Sara, just checking in. Saturday at 11am is still available if you would like to book."' },
+    { num: "03", title: "Objections, Handled", detail: "Real answers on price, timing and hesitation in the moment, without a hand-off to your team. Patients get the clarity they need to say yes. Hand-offs to your staff only when it matters and when necesary.", example: '"Price is a question. Hesitation is a feeling. FawrAI handles both before they become a reason to leave."' },
+    { num: "04", title: "Leads, Converted", detail: "The appointment goes straight onto your calendar, confirmed and booked. FawrAI collects everything needed and hands it off without friction.", example: '"Your appointment is confirmed for Saturday 18 October at 11am. See you then."' },
+    { num: "05", title: "Clients, Retained", detail: "Reaches out when it is time to return, and books the next visit before they think to look elsewhere. Every client relationship deepens over time.", example: '"Hi Sara. It has been 3 months since your last visit. Ready to touch up your botox?"' }
   ];
 
   var tabsWrap = document.getElementById("step-tabs");
@@ -73,44 +97,69 @@
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
   }
 
-  /* ---------------- Chat demo animation ---------------- */
+  /* ---------------- Chat demo animation (loops, 10s pause between cycles) ---------------- */
   var chatWrap = document.getElementById("chat-wrap");
   var typingEl = document.getElementById("chat-typing");
-  var chatPlayed = false;
+  var chatStarted = false;
+  var LOOP_PAUSE = 10000;
+
+  function resetChat() {
+    var wrappers = Array.prototype.slice.call(chatWrap.children).filter(function (el) { return el !== typingEl; });
+    wrappers.forEach(function (wrapper) {
+      wrapper.classList.add("chat-pending");
+      var msg = wrapper.querySelector(".chat-msg");
+      if (msg) msg.classList.remove("shown");
+    });
+    typingEl.classList.remove("active", "out");
+  }
 
   function playChat() {
-    if (chatPlayed || !chatWrap) return;
-    chatPlayed = true;
+    if (!chatWrap) return;
+    // typingEl stays fixed as the last DOM child; hidden (chat-pending) wrappers before it
+    // take no layout space, so it always renders directly beneath whatever is currently visible
+    // and nothing ever gets reordered or shifted.
     var msgs = Array.prototype.slice.call(chatWrap.querySelectorAll(".chat-msg"))
       .sort(function (a, b) { return parseInt(a.dataset.order, 10) - parseInt(b.dataset.order, 10); });
 
-    var delay = 250;
-    msgs.forEach(function (msg, idx) {
+    var TYPING_DURATION = 900;
+    var time = 250;
+    msgs.forEach(function (msg) {
       var isOut = msg.classList.contains("out");
-      var showAt = delay;
-      if (isOut) {
-        // brief typing indicator before outgoing (FawrAI) replies
-        setTimeout(function () {
-          if (typingEl) {
-            typingEl.classList.add("active");
-            chatWrap.insertBefore(typingEl, msg.parentElement);
-          }
-        }, delay - 200 > 0 ? delay - 500 : 0);
-        showAt = delay;
-      }
+      var wrapper = msg.parentElement;
+
+      // typing dots first, on the side of whoever is about to "type"
       setTimeout(function () {
-        if (typingEl) typingEl.classList.remove("active");
-        msg.classList.add("shown");
-      }, showAt);
-      delay += isOut ? 900 : 650;
+        typingEl.classList.toggle("out", isOut);
+        typingEl.classList.add("active");
+      }, time);
+      time += TYPING_DURATION;
+
+      // then swap dots for the actual message, no DOM movement
+      setTimeout(function () {
+        typingEl.classList.remove("active");
+        wrapper.classList.remove("chat-pending");
+        requestAnimationFrame(function () { msg.classList.add("shown"); });
+      }, time);
+      time += 550;
     });
+
+    setTimeout(function () {
+      resetChat();
+      setTimeout(playChat, 500);
+    }, time + LOOP_PAUSE);
+  }
+
+  function startChatLoop() {
+    if (chatStarted || !chatWrap) return;
+    chatStarted = true;
+    playChat();
   }
 
   if (chatWrap && "IntersectionObserver" in window) {
     var chatObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          playChat();
+          startChatLoop();
           chatObserver.unobserve(entry.target);
         }
       });

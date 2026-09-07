@@ -3,327 +3,328 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FawrAI — From first hello to loyal client</title>
+<title>FawrAI · The enquiry, worked until it books</title>
+
+<meta name="description" content="FawrAI is a fully managed sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry you already pay for is answered in seconds, qualified in conversation, followed up until it books, and remembered after.">
+<link rel="canonical" href="https://fawrai.com/">
+
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="FawrAI is a fully managed AI sales and retention system for aesthetic and wellness clinics in the GCC. Responds to every enquiry in under 30 seconds, in English and Gulf Arabic.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fawrai.com/">
-<meta property="og:title" content="FawrAI — From first hello to loyal client">
-<meta property="og:description" content="FawrAI is a fully managed AI sales and retention system for aesthetic and wellness clinics in the GCC. Responds to every enquiry in under 30 seconds, in English and Gulf Arabic.">
+<meta property="og:title" content="FawrAI · The enquiry, worked until it books">
+<meta property="og:description" content="A fully managed sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry you already pay for, worked until it becomes a booking.">
 <meta property="og:image" content="https://fawrai.com/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FawrAI — From first hello to loyal client">
-<meta name="twitter:description" content="FawrAI is a fully managed AI sales and retention system for aesthetic and wellness clinics in the GCC.">
+<meta name="twitter:title" content="FawrAI · The enquiry, worked until it books">
+<meta name="twitter:description" content="A fully managed sales and retention system for aesthetic and wellness clinics in the UAE.">
 <meta name="twitter:image" content="https://fawrai.com/og-image.png">
 
-<link rel="stylesheet" href="colors_and_type.css">
-<link rel="stylesheet" href="site.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://fawrai.com/#org",
+      "name": "FawrAI",
+      "url": "https://fawrai.com/",
+      "email": "hello@fawrai.com",
+      "logo": "https://fawrai.com/og-image.png",
+      "sameAs": ["https://instagram.com/getfawrai"],
+      "areaServed": "United Arab Emirates",
+      "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
+    },
+    {
+      "@type": "Service",
+      "name": "Managed AI sales and retention system for clinics",
+      "provider": { "@id": "https://fawrai.com/#org" },
+      "serviceType": "Sales and retention operations",
+      "areaServed": "United Arab Emirates",
+      "audience": { "@type": "Audience", "audienceType": "Aesthetic and wellness clinics" },
+      "description": "FawrAI works every inbound enquiry a clinic receives: response, conversation, qualification, follow-up, objection handling, booking and retention, all in the clinic's own voice on WhatsApp and Instagram."
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!-- NAV -->
-<nav class="fw-nav">
-  <a href="index.html" aria-label="FawrAI home"><img src="logo-dark.png" alt="FawrAI" class="fw-logo-nav" style="height:20px;width:auto;"></a>
-  <ul class="fw-nav-links">
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#why">Why FawrAI</a></li>
-    <li><a href="https://roi.fawrai.com">ROI calculator</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="fw-btn fw-btn-primary fw-nav-cta">Book a strategy call</a>
-  <button id="fw-burger" class="fw-burger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div id="fw-mobile-menu" class="fw-mobile-menu">
-  <a href="#how">How it works</a>
-  <a href="#why">Why FawrAI</a>
-  <a href="https://roi.fawrai.com">ROI calculator</a>
-  <a href="#contact">Contact</a>
-  <a href="#contact" class="fw-btn fw-btn-primary fw-mobile-cta">Book a strategy call</a>
-</div>
-
-<!-- HERO -->
-<div style="background: var(--fawr-navy); position: relative; overflow: hidden;">
-  <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(212,175,110,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,110,0.03) 1px, transparent 1px); background-size: 72px 72px; pointer-events: none;"></div>
-  <div class="hero-inner fw-reveal" style="max-width: 780px; margin: 0 auto; padding: 112px 64px 104px; display: flex; flex-direction: column; align-items: flex-start; position: relative;">
-    <div class="eyebrow" style="margin-bottom: 24px; color: var(--fawr-sage);">AI-powered sales and retention system</div>
-    <h1 style="font-size: 60px; font-weight: 200; letter-spacing: -0.034em; line-height: 1.05; color: var(--fawr-offwhite); margin-bottom: 20px;">From first hello<br>to loyal client.<br><span style="font-size: 25px; font-weight: 300; color: var(--fawr-sage); letter-spacing: -0.022em; text-transform: uppercase; font-style: italic;">Handled autonomously.</span></h1>
-    <div style="width: 48px; height: 1px; background: var(--fawr-gold); margin-bottom: 28px;"></div>
-    <p style="font-size: 16px; line-height: 1.7; color: var(--fg-on-navy-dim); max-width: 520px; margin-bottom: 40px;">FawrAI is a fully managed sales and retention system for aesthetic and wellness clinics in the GCC. It responds the moment an enquiry lands, in your clinic's own voice, and converts leads you already pay for.</p>
-    <div class="btn-row" style="display: flex; gap: 12px; align-items: center;">
-      <a href="#contact" class="fw-btn fw-btn-accent" style="font-size: 14px; padding: 9px 36px; white-space: nowrap;">Book a strategy call</a>
-      <a href="#how" class="fw-btn" style="font-size: 14px; padding: 8px 36px; white-space: nowrap; background: rgba(255,255,255,0.07); color: var(--fawr-offwhite); border: 1px solid rgba(255,255,255,0.12);">See how it works</a>
-    </div>
-    <p style="margin-top: 24px; font-size: 11.5px; color: rgba(255,255,255,0.3); font-family: var(--font-body); font-weight: 300; font-style: italic;">Dubai, UAE. Built for clinics across the GCC.</p>
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="/" aria-label="FawrAI home">
+      <img src="uploads/logo-dark.png" alt="FawrAI" width="96" height="16">
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#leak">The problem</a>
+      <a href="#system">The system</a>
+      <a href="#difference">The difference</a>
+      <a href="https://roi.fawrai.com/">ROI calculator</a>
+    </nav>
+    <a href="#contact" class="btn btn--primary nav__cta">Book a consultation</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
   </div>
-</div>
-
-<!-- STATS BANNER -->
-<div style="background: var(--fawr-navy); padding: 0;">
-  <div class="section-inner" style="padding-top: 0; padding-bottom: 0;">
-    <div class="stats-grid" style="display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr;">
-      <div class="fw-reveal" style="padding: 32px 24px; text-align: center;">
-        <div style="font-family: var(--font-display); font-size: 32px; font-weight: 200; color: var(--fawr-offwhite); letter-spacing: -0.02em;">&lt;30 sec</div>
-        <div style="font-family: var(--font-body); font-size: 11px; color: var(--fg-on-navy-dim); margin-top: 6px;">Average response time</div>
-      </div>
-      <div class="stats-div" style="background: rgba(255,255,255,0.07);"></div>
-      <div class="fw-reveal" style="padding: 32px 24px; text-align: center;">
-        <div style="font-family: var(--font-display); font-size: 32px; font-weight: 200; color: var(--fawr-offwhite); letter-spacing: -0.02em;">24/7</div>
-        <div style="font-family: var(--font-body); font-size: 11px; color: var(--fg-on-navy-dim); margin-top: 6px;">Every enquiry, every day</div>
-      </div>
-      <div class="stats-div" style="background: rgba(255,255,255,0.07);"></div>
-      <div class="fw-reveal" style="padding: 32px 24px; text-align: center;">
-        <div style="font-family: var(--font-display); font-size: 32px; font-weight: 200; color: var(--fawr-offwhite); letter-spacing: -0.02em;">0</div>
-        <div style="font-family: var(--font-body); font-size: 11px; color: var(--fg-on-navy-dim); margin-top: 6px;">Enquiries left waiting</div>
-      </div>
-      <div class="stats-div" style="background: rgba(255,255,255,0.07);"></div>
-      <div class="fw-reveal" style="padding: 32px 24px; text-align: center;">
-        <div style="font-family: var(--font-display); font-size: 32px; font-weight: 200; color: var(--fawr-gold); letter-spacing: -0.02em;">2</div>
-        <div style="font-family: var(--font-body); font-size: 11px; color: var(--fg-on-navy-dim); margin-top: 6px;">Languages. English and Gulf Arabic.</div>
-      </div>
-    </div>
+  <div class="nav__menu" id="menu" hidden>
+    <a href="#leak">The problem</a>
+    <a href="#system">The system</a>
+    <a href="#difference">The difference</a>
+    <a href="#conversation">A real conversation</a>
+    <a href="https://roi.fawrai.com/">ROI calculator</a>
+    <a href="#contact" class="btn btn--primary">Book a consultation</a>
   </div>
-</div>
+</header>
 
-<!-- HOW IT WORKS -->
-<div id="how" class="section-pad" style="padding: 96px 0; background: var(--fawr-offwhite);">
-  <div class="section-inner">
-    <div class="eyebrow fw-reveal" style="margin-bottom: 16px;">One system. Every step.</div>
-    <h2 class="fw-reveal" style="font-size: 39px; font-weight: 200; letter-spacing: -0.025em; line-height: 1.1; color: var(--fawr-navy); margin-bottom: 8px;">FawrAI in action.</h2>
-    <p class="fw-reveal" style="font-size: 15px; color: var(--fawr-charcoal); margin-bottom: 56px; max-width: 480px; line-height: 1.6;">Click each step to see FawrAI in action.</p>
+<main id="main">
 
-    <div id="step-tabs" class="steps-tabs" style="display: grid; grid-template-columns: repeat(5, 1fr); border-bottom: 1px solid rgba(13,33,55,0.1); margin-bottom: 48px;">
-      <button class="step-tab active" data-step="0" style="width: 100%;"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); min-width: 16px;">01</span><span style="font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--fawr-charcoal); text-transform: uppercase; letter-spacing: 0.06em; flex: 1;">Enquiries, Answered</span><span style="font-size: 11px; color: var(--fawr-sage);">&#10003;</span></div></button>
-      <button class="step-tab" data-step="1" style="width: 100%;"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); min-width: 16px;">02</span><span style="font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--fawr-charcoal); text-transform: uppercase; letter-spacing: 0.06em; flex: 1;">Follow-ups, Personalised</span><span style="font-size: 11px; color: var(--fawr-sage);">&#10003;</span></div></button>
-      <button class="step-tab" data-step="2" style="width: 100%;"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); min-width: 16px;">03</span><span style="font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--fawr-charcoal); text-transform: uppercase; letter-spacing: 0.06em; flex: 1;">Objections, Handled</span><span style="font-size: 11px; color: var(--fawr-sage);">&#10003;</span></div></button>
-      <button class="step-tab" data-step="3" style="width: 100%;"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); min-width: 16px;">04</span><span style="font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--fawr-charcoal); text-transform: uppercase; letter-spacing: 0.06em; flex: 1;">Leads, Converted</span><span style="font-size: 11px; color: var(--fawr-sage);">&#10003;</span></div></button>
-      <button class="step-tab" data-step="4" style="width: 100%;"><div style="display: flex; align-items: center; gap: 10px;"><span style="font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; color: var(--fawr-sage); min-width: 16px;">05</span><span style="font-family: var(--font-body); font-size: 12px; font-weight: 400; color: var(--fawr-charcoal); text-transform: uppercase; letter-spacing: 0.06em; flex: 1;">Clients, Retained</span><span style="font-size: 11px; color: var(--fawr-sage);">&#10003;</span></div></button>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__inner">
+      <p class="eyebrow eyebrow--onnavy">Revenue infrastructure for clinics</p>
+      <h1 id="hero-title"><span>You already paid for the enquiry.</span>We make sure it becomes a booking.</h1>
+      <p class="hero__lead">A fully managed, AI-powered sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry answered, qualified, followed up and booked autonomously, in your clinic&rsquo;s voice.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--gold">Book a consultation <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="#system" class="btn btn--onnavy-ghost" data-scroll>See how it works <span class="btn__arrow" aria-hidden="true">&darr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="stage">
+
+    <!-- The moving spine: one enquiry, carried forward as you read -->
+    <div class="spine" aria-hidden="true">
+      <div class="spine__line"></div>
+      <div class="spine__fill" id="spineFill"></div>
+      <div class="spine__dot" id="spineDot"></div>
+      <ol class="spine__stops" id="spineStops">
+        <li data-at="0.04"><b>09:41</b>enquiry in</li>
+        <li data-at="0.16"><b>09:41</b>replied</li>
+        <li data-at="0.30"><b>09:52</b>qualified</li>
+        <li data-at="0.44"><b>14:30</b>followed up</li>
+        <li data-at="0.58"><b>next day</b>booked</li>
+        <li data-at="0.70"><b>next day</b>confirmed</li>
+        <li data-at="0.83"><b>day before</b>reminded</li>
+        <li data-at="0.95"><b>3 weeks after</b>rebooked</li>
+      </ol>
     </div>
 
-    <div class="steps-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; min-height: 260px;">
-      <div>
-        <h3 id="step-detail-title" style="font-size: 28px; font-weight: 300; color: var(--fawr-navy); margin-bottom: 20px; letter-spacing: -0.018em;">Enquiries, Answered</h3>
-        <p id="step-detail-body" style="font-size: 16px; line-height: 1.7; color: var(--fawr-charcoal); margin-bottom: 28px;">Every message met with a real, qualified conversation on WhatsApp, Instagram, SMS or your website the moment it lands. No waiting. No missed leads.</p>
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 32px; height: 2px; background: var(--fawr-sage);"></div>
-          <span id="step-detail-count" style="font-family: var(--font-body); font-size: 11px; color: var(--fawr-sage); font-style: italic;">01 of 05</span>
+    <!-- 01 · THE LEAK -->
+    <section class="block" id="leak" aria-labelledby="leak-title">
+      <p class="label reveal"><span>01</span>The leak</p>
+      <h2 id="leak-title" class="reveal">Established clinics don&rsquo;t have a lead problem.<br>They have a follow-up problem.</h2>
+      <div class="prose reveal">
+        <p>The enquiries arrive, and your team replies to most of them. But not fast enough. By the time someone answers, the patient has messaged four or five other clinics, and the ones that replied first already have their attention.</p>
+        <p>The first hour is where the booking is won or lost.</p>
+      </div>
+
+      <figure class="gap reveal" aria-labelledby="gap-cap">
+        <div class="gap__row">
+          <span class="gap__k">Enquiries you pay to generate</span>
+          <span class="gap__bar"><i style="--w:100%"></i></span>
+        </div>
+        <div class="gap__row">
+          <span class="gap__k">Enquiries still being worked after the first reply</span>
+          <span class="gap__bar gap__bar--short"><i style="--w:42%"></i></span>
+        </div>
+        <figcaption id="gap-cap">The gap is revenue you already paid for.<br><a href="https://roi.fawrai.com/">The calculator shows yours &rarr;</a></figcaption>
+      </figure>
+    </section>
+
+    <!-- 02 · THE SYSTEM -->
+    <section class="block" id="system" aria-labelledby="system-title">
+      <p class="label reveal"><span>02</span>The system</p>
+      <h2 id="system-title" class="reveal">One enquiry, worked into a booking.<br>Then into a loyal patient.</h2>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__mark">Response</span>
+          <p>Answered in seconds, in your clinic&rsquo;s voice. Any hour, any day.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__mark">Conversation</span>
+          <p>A real exchange in your clinic&rsquo;s voice, matching your tone and language. It answers what the patient actually asks: price, downtime, who treats them.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__mark">Qualification</span>
+          <p>Treatment interest, preferences and timing captured in the chat. Your team gets a summary, not a cold number.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__mark">Objection handling</span>
+          <p>Price is a question. Hesitation is a feeling. FawrAI handles both before they become a reason to leave.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__mark">Booking</span>
+          <p>The slot goes directly onto your calendar. Confirmation and reminders handled.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__mark">Retention</span>
+          <p>After the visit, the right message at the right time brings the patient back.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 03 · THE DIFFERENCE -->
+    <section class="block" id="difference" aria-labelledby="diff-title">
+      <p class="label reveal"><span>03</span>The difference</p>
+      <h2 id="diff-title" class="reveal">Most AI receptionists reply.<br>FawrAI runs the sale, autonomously.</h2>
+      <dl class="contrast">
+        <div class="contrast__pair reveal">
+          <dt>Resets between conversations.</dt>
+          <dd>Remembers the patient: their last treatment, their preferences, their name.</dd>
+        </div>
+        <div class="contrast__pair reveal">
+          <dt>Answers, then waits to be messaged again.</dt>
+          <dd>Follows up on its own, in your clinic&rsquo;s voice, until there is an answer.</dd>
+        </div>
+        <div class="contrast__pair reveal">
+          <dt>Scripted, FAQ-style answers.</dt>
+          <dd>Personalised to each patient. Run for you, not by you.</dd>
+        </div>
+        <div class="contrast__pair reveal">
+          <dt>Stops at the first booking.</dt>
+          <dd>Handles reschedules, cancellations and no-shows, and keeps the patient after the visit.</dd>
+        </div>
+      </dl>
+      <p class="prose prose--pull reveal">Replying is easy. Building real client relationships is the job.</p>
+    </section>
+
+    <!-- 04 · IN SHORT -->
+    <section class="block" id="short" aria-labelledby="short-title">
+      <p class="label reveal"><span>04</span>In short</p>
+      <h2 id="short-title" class="reveal">What FawrAI is, and what it is not.</h2>
+      <dl class="isnot reveal">
+        <div>
+          <dt>It is</dt>
+          <dd>A fully managed sales and retention system</dd>
+          <dd>An intelligence that remembers every patient</dd>
+          <dd>A way to convert the enquiries you already pay for</dd>
+          <dd>Personalised to each patient, in your clinic&rsquo;s voice</dd>
+        </div>
+        <div>
+          <dt>It is not</dt>
+          <dd>A chatbot, or a tool your team has to run</dd>
+          <dd>Scripted, FAQ-style replies</dd>
+          <dd>A lead-generation service</dd>
+          <dd>An off-the-shelf product built for every market</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- 05 · A REAL CONVERSATION -->
+    <section class="block" id="conversation" aria-labelledby="conv-title">
+      <p class="label reveal"><span>05</span>In practice</p>
+      <h2 id="conv-title" class="reveal">Qualification, inside a normal conversation.</h2>
+      <p class="prose reveal">Instagram enquiry. Friday night. Nobody online.</p>
+
+      <div class="thread reveal" id="thread" role="img" aria-label="A messaging exchange in which FawrAI answers an after-hours enquiry, qualifies the patient and books the appointment.">
+        <div class="msg msg--in" data-delay="200">
+          <p>Hi, how much is Botox for the forehead?</p><time>21:14</time>
+        </div>
+        <div class="msg msg--out" data-delay="900">
+          <p>Forehead is one area. That&rsquo;s AED&nbsp;900 with our nurse, or AED&nbsp;1,300 with Dr.&nbsp;Layla, who leads our injectables. Have you had it done before?</p><time>21:14</time>
+        </div>
+        <div class="msg msg--in" data-delay="1400">
+          <p>Once, last year. Wasn&rsquo;t happy, it dropped after a month.</p><time>21:15</time>
+        </div>
+        <div class="msg msg--out" data-delay="1800">
+          <p>That is usually under-dosing. Dr.&nbsp;Layla checks how your muscles move before deciding units, so most patients who switch stop having that problem. She has two slots this week: Friday 4:00pm, or Saturday 11:30am. Which one suits you best?</p><time>21:15</time>
+        </div>
+        <div class="msg msg--in" data-delay="1100">
+          <p>Saturday</p><time>21:16</time>
+        </div>
+        <div class="msg msg--out" data-delay="1400">
+          <p>Booked. Saturday 11:30am with Dr.&nbsp;Layla. I&rsquo;ll send you a reminder the day before.</p><time>21:16</time>
         </div>
       </div>
-      <div style="background: var(--fawr-offwhite-2); border-radius: var(--radius-lg); padding: 32px; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-        <p id="step-detail-example" style="font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--fawr-navy); text-align: center; line-height: 1.5; letter-spacing: -0.01em; margin: 0;">"Hi, I saw your Botox post. Do you have anything free this weekend?"</p>
-      </div>
-    </div>
-  </div>
-</div>
+      <p class="thread__cap reveal">Answered in under a minute, qualified in the conversation, and booked.</p>
+    </section>
 
-<!-- WHAT YOU GET -->
-<div class="section-pad" style="padding: 96px 0; background: var(--fawr-offwhite-2);">
-  <div class="section-inner">
-    <div class="eyebrow fw-reveal" style="margin-bottom: 16px;">What you get</div>
-    <h2 class="fw-reveal" style="font-size: 39px; font-weight: 200; letter-spacing: -0.025em; line-height: 1.1; color: var(--fawr-navy); margin-bottom: 48px;">More clients converted. <br>Less time spent chasing.</h2>
-    <div class="benefits-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+    <!-- 05 · THE ECONOMICS -->
+    <section class="block block--flush" id="economics" aria-labelledby="econ-title">
+      <div class="panel reveal">
+        <p class="label label--onnavy"><span>06</span>The economics</p>
+        <h2 id="econ-title" class="h2--onnavy">Same leads. Same spend. More of them on the calendar.</h2>
+        <ul class="figures">
+          <li><b>Under 30 sec</b><span>Response time, day and night</span></li>
+          <li><b>Every enquiry</b><span>Worked past the first message</span></li>
+          <li><b>No new hire</b><span>The work runs without adding a person to your team</span></li>
+          <li><b>After the visit</b><span>A first visit becomes a loyal patient, brought back with no new spend</span></li>
+        </ul>
+        <p class="panel__line">More treatments, same spend. That is your ROI.</p>
+        <a href="https://roi.fawrai.com/" class="panel__link">Run your clinic&rsquo;s numbers &rarr;</a>
+      </div>
+    </section>
 
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">More revenue per lead</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">Every enquiry gets a real shot at converting, instead of going cold waiting on a reply.</p>
-      </div>
+    <!-- 06 · FIT -->
+    <section class="block" id="fit" aria-labelledby="fit-title">
+      <p class="label reveal"><span>07</span>Fit</p>
+      <h2 id="fit-title" class="reveal">Built for established clinics with real demand.</h2>
+      <ul class="checks reveal">
+        <li>You already generate steady inbound enquiries.</li>
+        <li>Aesthetic, dermatology, dental or wellness, anywhere in the UAE.</li>
+        <li>The bottleneck is response and follow-up, not awareness.</li>
+      </ul>
+      <p class="prose reveal">If it&rsquo;s too early or not the right fit, we will say so on the call.</p>
+    </section>
 
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">Higher client retention</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">Personalised follow-up brings clients back, turning a single visit into a lasting relationship.</p>
-      </div>
-
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">Your team, focused on the room</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">Your staff focus on the patient in front of them. FawrAI handles every message outside the room.</p>
-      </div>
-
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">Fluent in English and Gulf Arabic</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">FawrAI adapts to how each patient writes, switching naturally between the two.</p>
-      </div>
-
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">Every preference, remembered</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">Past visits, preferences and history carry over so no conversation ever starts blank.</p>
-      </div>
-
-      <div class="benefit-card fw-reveal" style="background: var(--fawr-offwhite); border-radius: var(--radius-md); padding: 28px; transition: box-shadow 160ms, transform 160ms;">
-        <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: var(--fawr-sage-20); display: flex; align-items: center; justify-content: center; color: var(--fawr-sage); margin-bottom: 16px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
-        <h3 style="font-size: 16px; font-weight: 400; color: var(--fawr-navy); margin-bottom: 10px;">Nothing for you to manage</h3>
-        <p style="font-size: 14px; line-height: 1.6; color: var(--fawr-charcoal); margin: 0;">Fully managed means exactly that. We set it up, keep it running and optimize it over time.</p>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- WHY FAWRAI -->
-<div id="why" class="section-pad" style="padding: 96px 0; background: var(--fawr-offwhite);">
-  <div class="section-inner">
-    <div class="eyebrow fw-reveal" style="margin-bottom: 16px;">Why FawrAI</div>
-    <h2 class="fw-reveal" style="font-size: 39px; font-weight: 200; letter-spacing: -0.025em; line-height: 1.1; color: var(--fawr-navy); margin-bottom: 48px;">The market is full of generic tools. <br>FawrAI is built differently.</h2>
-    <div class="is-isnot-grid fw-reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: var(--radius-lg); overflow: hidden; background: rgba(13,33,55,0.08);">
-      <div style="background: var(--fawr-navy); padding: 16px 28px;">
-        <span style="font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--fawr-offwhite); letter-spacing: 0.05em;">FAWRAI IS</span>
-      </div>
-      <div style="background: var(--fawr-offwhite-2); padding: 16px 28px;">
-        <span style="font-family: var(--font-body); font-size: 12px; font-weight: 500; color: var(--fawr-sage); letter-spacing: 0.05em;">FAWRAI IS NOT</span>
-      </div>
-      <div class="is-row-navy" style="background: var(--fawr-navy); padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.06);">
-        <span style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-offwhite);">A fully managed system</span>
-      </div>
-      <div class="is-row-light" style="background: var(--bg-page); padding: 18px 28px; border-top: 1px solid rgba(13,33,55,0.06);">
-        <span class="is-not-text" style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-charcoal);">Something the clinic has to run</span>
-      </div>
-      <div class="is-row-navy" style="background: var(--fawr-navy); padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.06);">
-        <span style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-offwhite);">Remembers every conversation</span>
-      </div>
-      <div class="is-row-light" style="background: var(--bg-page); padding: 18px 28px; border-top: 1px solid rgba(13,33,55,0.06);">
-        <span class="is-not-text" style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-charcoal);">Scripted, FAQ-style responses</span>
-      </div>
-      <div class="is-row-navy" style="background: var(--fawr-navy); padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.06);">
-        <span style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-offwhite);">Converts leads you already pay for</span>
-      </div>
-      <div class="is-row-light" style="background: var(--bg-page); padding: 18px 28px; border-top: 1px solid rgba(13,33,55,0.06);">
-        <span class="is-not-text" style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-charcoal);">A lead-generation tool</span>
-      </div>
-      <div class="is-row-navy" style="background: var(--fawr-navy); padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.06);">
-        <span style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-offwhite);">Personalised to each patient</span>
-      </div>
-      <div class="is-row-light" style="background: var(--bg-page); padding: 18px 28px; border-top: 1px solid rgba(13,33,55,0.06);">
-        <span class="is-not-text" style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-charcoal);">Broadcast messages, generic follow-ups</span>
-      </div>
-      <div class="is-row-navy" style="background: var(--fawr-navy); padding: 18px 28px; border-top: 1px solid rgba(255,255,255,0.06); border-radius: 0 0 0 var(--radius-lg);">
-        <span style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-offwhite);">Built for the GCC</span>
-      </div>
-      <div class="is-row-light" style="background: var(--bg-page); padding: 18px 28px; border-top: 1px solid rgba(13,33,55,0.06); border-radius: 0 0 var(--radius-lg) 0;">
-        <span class="is-not-text" style="font-family: var(--font-body); font-size: 14px; color: var(--fawr-charcoal);">A one-size-fits-all global tool</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- INTEGRATIONS -->
-<div style="padding: 72px 0 64px; background: var(--fawr-offwhite-2); border-top: 1px solid rgba(13,33,55,0.06);">
-  <div class="section-inner">
-    <div class="integrations-grid" style="display: grid; grid-template-columns: 1fr 280px; gap: 48px; align-items: end;">
-      <div class="fw-reveal">
-        <div class="eyebrow" style="margin-bottom: 16px;">Integrates with</div>
-        <h2 style="font-size: 39px; font-weight: 200; letter-spacing: -0.025em; line-height: 1.1; color: var(--fawr-navy); margin-bottom: 20px;">Lives inside the channels your clients already use.</h2>
-        <p style="font-size: 15px; color: var(--fawr-charcoal); margin-bottom: 24px; line-height: 1.6;">Nothing new to set up. Nothing new to learn. FawrAI meets your clients where they already are.</p>
-        <div class="integration-pills" style="display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">WhatsApp</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">Instagram</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">SMS</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">Meta</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">Google Calendar</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">CRM</span>
-          <span style="font-family: var(--font-body); font-size: 12px; color: var(--fawr-charcoal); background: var(--fawr-offwhite); padding: 6px 14px; border-radius: var(--radius-sm); border: 1px solid rgba(13,33,55,0.08);">Website</span>
+    <!-- 07 · CONTACT -->
+    <section class="block block--flush" id="contact" aria-labelledby="cta-title">
+      <div class="cta reveal">
+        <div class="cta__copy">
+          <p class="label"><span>08</span>Next</p>
+          <h2 id="cta-title">Book a consultation.</h2>
+          <p>Twenty minutes. We look at your volume, your channels and where things stall, and tell you straight if FawrAI fits.</p>
+          <p class="cta__alt">Prefer email? <a href="mailto:hello@fawrai.com">hello@fawrai.com</a></p>
         </div>
+        <form class="form" action="https://formspree.io/f/xjybanby" method="POST">
+          <label>Clinic name<input type="text" name="clinic" autocomplete="organization" required></label>
+          <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+          <label>WhatsApp <span>(preferred)</span><input type="text" name="whatsapp" autocomplete="tel" inputmode="tel"></label>
+          <label>Monthly enquiry volume
+            <select name="lead_volume">
+              <option value="Under 200">Under 200</option>
+              <option value="200 to 400">200 to 400</option>
+              <option value="400 to 600">400 to 600</option>
+              <option value="600+">600+</option>
+            </select>
+          </label>
+          <label>How are enquiries handled at your clinic today?<textarea name="bottleneck" rows="3"></textarea></label>
+          <label class="form__check"><input type="checkbox" name="has_authority" value="yes"> I have decision-making authority at my clinic.</label>
+          <button type="submit" class="btn btn--primary">Send message <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+          <p class="form__note">We reply within 24 hours.</p>
+        </form>
       </div>
-      <div class="fw-reveal" style="display: flex; flex-direction: column; gap: 14px;">
-        <div style="width: 280px; background: rgb(245, 240, 233); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); height: 460px; display: flex; flex-direction: column;">
-          <div style="padding: 10px 14px; background: rgb(7, 94, 84); display: flex; align-items: center; gap: 10px;">
-            <div style="width: 32px; height: 32px; border-radius: 50%; background: rgb(18, 140, 126); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" fill="rgba(255,255,255,0.7)"></path></svg>
-            </div>
-            <div>
-              <div style="font-family: var(--font-body); font-size: 13px; font-weight: 500; color: rgb(255,255,255);">WhatsApp</div>
-              <div style="display: flex; align-items: center; gap: 4px;">
-                <div class="wa-status-dot" style="width: 5px; height: 5px; border-radius: 50%; background: rgb(74,222,128);"></div>
-                <span style="font-size: 10px; color: rgba(255,255,255,0.75); font-family: var(--font-body);">Online now</span>
-              </div>
-            </div>
-          </div>
-          <div style="padding: 14px 12px; flex: 1; overflow: hidden;">
-            <div class="chat-wrap" id="chat-wrap">
-              <div class="chat-pending">
-                <div class="chat-msg in" data-order="0">Hi, I saw your Botox post. Do you have anything free this weekend?</div>
-                <div class="chat-meta" style="padding-left: 4px;">2:14 PM</div>
-              </div>
-              <div class="chat-pending">
-                <div class="chat-msg out" data-order="1">Hi Sara. We have Saturday at 11am or Sunday at 3pm. Which works better for you?</div>
-                <div class="chat-meta right" style="padding-right: 4px;">2:14 PM</div>
-              </div>
-              <div class="chat-pending">
-                <div class="chat-msg in" data-order="2">Saturday works. How much is it?</div>
-                <div class="chat-meta" style="padding-left: 4px;">2:15 PM</div>
-              </div>
-              <div class="chat-pending">
-                <div class="chat-msg out" data-order="3">Botox starts at AED 1,200 for 1 area. Saturday at 11am is still open. Shall I book it in?</div>
-                <div class="chat-meta right" style="padding-right: 4px;">2:15 PM</div>
-              </div>
-              <div class="chat-typing" id="chat-typing"><span></span><span></span><span></span></div>
-            </div>
-          </div>
-          <div style="padding: 8px 12px 12px; display: flex; align-items: center; gap: 6px;">
-            <div style="width: 5px; height: 5px; border-radius: 50%; background: rgb(7,94,84); flex-shrink: 0;"></div>
-            <span style="font-family: var(--font-body); font-size: 10px; color: rgba(0,0,0,0.45);">Responded in under 30 seconds. No one on your team involved.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-<!-- CTA / CONTACT -->
-<div id="contact" style="padding: 96px 0; background: var(--fawr-navy);">
-  <div class="section-inner">
-    <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
-      <div class="fw-reveal">
-        <div class="eyebrow" style="color: var(--fawr-sage); margin-bottom: 20px;">Book a strategy call</div>
-        <h2 style="font-size: 39px; font-weight: 200; letter-spacing: -0.025em; color: var(--fawr-offwhite); margin-bottom: 20px; line-height: 1.1;">Find out what FawrAI would do for your clinic.</h2>
-        <p style="font-size: 15px; line-height: 1.65; color: var(--fg-on-navy-dim); margin-bottom: 0;">A focused 20-minute call. We ask the right questions and give you a straight answer on whether FawrAI is the right fit for your clinic.</p>
-      </div>
-      <form id="fw-contact-form" class="fw-reveal" action="https://formspree.io/f/xjybanby" method="POST" style="background: var(--fawr-offwhite); border-radius: var(--radius-lg); padding: 36px; display: flex; flex-direction: column; gap: 16px;">
-        <input type="text" name="clinic" placeholder="Clinic name" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none;">
-        <input type="text" name="name" placeholder="Your name" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none;">
-        <input type="email" name="email" placeholder="Email" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none;">
-        <input type="text" name="whatsapp" placeholder="WhatsApp (preferred)" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none;">
-        <select name="lead_volume" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none;">
-          <option value="">Monthly lead volume</option>
-          <option>Under 100</option>
-          <option>100 to 200</option>
-          <option>200 to 500</option>
-          <option>500+</option>
-        </select>
-        <textarea name="bottleneck" placeholder="What is your biggest bottleneck right now?" rows="3" style="font-family: var(--font-body); font-size: 14px; background: var(--fawr-offwhite-2); border: 1px solid rgba(13,33,55,0.12); border-radius: var(--radius-sm); padding: 12px 16px; color: var(--fawr-charcoal); width: 100%; outline: none; resize: none;"></textarea>
-        <label style="display: flex; align-items: center; gap: 10px; font-family: var(--font-body); font-size: 13px; color: var(--fawr-charcoal); cursor: pointer;">
-          <input type="checkbox" name="has_authority" style="accent-color: var(--fawr-gold);">
-          I have decision-making authority at my clinic.
-        </label>
-        <button type="submit" class="fw-btn fw-btn-accent" style="width: 100%; text-align: center; font-size: 14px; padding: 14px;">Send. We reply inside 24 hours.</button>
-        <div id="fw-form-status" class="fw-form-status" role="status" aria-live="polite"></div>
-      </form>
-    </div>
-  </div>
-</div>
+  </div><!-- /stage -->
+</main>
 
-<!-- FOOTER -->
-<div style="background: var(--fawr-navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 64px;">
-  <div class="fw-footer" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
-    <a href="index.html" aria-label="FawrAI home"><img src="logo-light.png" alt="FawrAI" style="height:20px;width:auto;margin-left:-4px;"></a>
-    <div style="display: flex; gap: 24px; align-items: center;">
-      <a href="mailto:hello@fawrai.com" style="font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--fg-on-navy-dim);">HELLO@FAWRAI.COM</a>
-      <a href="https://instagram.com/getfawrai" target="_blank" rel="noopener" style="font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.1em; color: var(--fg-on-navy-dim);">@GETFAWRAI</a>
-    </div>
-    <span style="font-family: var(--font-body); font-size: 11px; color: var(--fg-on-navy-dim);">fawrai.com · Dubai, UAE · 2026</span>
+<footer class="foot">
+  <div class="foot__inner">
+    <img src="uploads/logo-light-cropped.png" alt="FawrAI" width="88" height="15" class="foot__logo">
+    <p class="foot__tag">Fully managed AI sales &amp; retention for UAE clinics.</p>
+    <p class="foot__meta">
+      <a href="mailto:hello@fawrai.com">hello@fawrai.com</a>
+      <a href="https://instagram.com/getfawrai">@getfawrai</a>
+      <span>Dubai, UAE</span>
+      <span>&copy; 2026 FawrAI</span>
+    </p>
   </div>
-</div>
+</footer>
 
-<script src="script.js"></script>
+<script src="app.js" defer></script>
 </body>
 </html>

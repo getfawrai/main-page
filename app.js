@@ -62,34 +62,46 @@
   window.addEventListener("scroll", requestSpine, { passive: true });
   window.addEventListener("resize", requestSpine, { passive: true });
 
-  /* ---------- reveal on enter ---------- */
-  var revealables = document.querySelectorAll(".reveal");
-  if (reduce || !("IntersectionObserver" in window)) {
+  /* ---------- reveal on enter ----------
+     Scroll + rAF driven, same mechanism as the spine below, instead of
+     IntersectionObserver — on some mobile browsers IO callbacks stall or
+     never fire during fast/momentum scroll, which left sections stuck
+     half-faded forever. A direct bounding-rect check on scroll is simpler
+     and reliably fires on every device. */
+  var revealables = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+  if (reduce) {
     revealables.forEach(function (el) { el.classList.add("in"); });
   } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
+    var revealTicking = false;
+    function paintReveal() {
+      revealTicking = false;
+      var vh = window.innerHeight;
+      for (var i = revealables.length - 1; i >= 0; i--) {
+        var r = revealables[i].getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) {
+          revealables[i].classList.add("in");
+          revealables.splice(i, 1);
         }
-      });
-    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.15 });
-    revealables.forEach(function (el) { io.observe(el); });
+      }
+    }
+    function requestReveal() {
+      if (!revealTicking) { revealTicking = true; requestAnimationFrame(paintReveal); }
+    }
+    paintReveal();
+    window.addEventListener("scroll", requestReveal, { passive: true });
+    window.addEventListener("resize", requestReveal, { passive: true });
   }
 
   /* ---------- conversation: reveals in sequence, at conversational pace ---------- */
   var thread = document.getElementById("thread");
   if (thread) {
     var msgs = Array.prototype.slice.call(thread.querySelectorAll(".msg"));
-    if (reduce || !("IntersectionObserver" in window)) {
+    if (reduce) {
       msgs.forEach(function (m) { m.classList.add("show"); });
     } else {
       var played = false;
-      var tio = new IntersectionObserver(function (entries) {
-        if (played || !entries[0].isIntersecting) return;
-        played = true;
-        tio.disconnect();
+      var threadTicking = false;
+      function playThread() {
         var i = 0;
         (function next() {
           if (i >= msgs.length) { thread.classList.remove("typing"); return; }
@@ -103,8 +115,24 @@
             next();
           }, delay);
         })();
-      }, { threshold: 0.25 });
-      tio.observe(thread);
+      }
+      function checkThread() {
+        threadTicking = false;
+        if (played) return;
+        var r = thread.getBoundingClientRect();
+        if (r.top < window.innerHeight * 0.8 && r.bottom > 0) {
+          played = true;
+          window.removeEventListener("scroll", requestThreadCheck);
+          window.removeEventListener("resize", requestThreadCheck);
+          playThread();
+        }
+      }
+      function requestThreadCheck() {
+        if (!threadTicking) { threadTicking = true; requestAnimationFrame(checkThread); }
+      }
+      checkThread();
+      window.addEventListener("scroll", requestThreadCheck, { passive: true });
+      window.addEventListener("resize", requestThreadCheck, { passive: true });
     }
   }
 

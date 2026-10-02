@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FawrAI · The enquiry, worked until it books</title>
-
 <meta name="description" content="FawrAI is a fully managed sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry you already pay for is answered in seconds, qualified in conversation, followed up until it books, and remembered after.">
+<meta name="theme-color" content="#0D2137">
 <link rel="canonical" href="https://fawrai.com/">
 
 <link rel="icon" type="image/png" href="favicon-32.png">
@@ -17,45 +17,12 @@
 <meta property="og:title" content="FawrAI · The enquiry, worked until it books">
 <meta property="og:description" content="A fully managed sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry you already pay for, worked until it becomes a booking.">
 <meta property="og:image" content="https://fawrai.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FawrAI · The enquiry, worked until it books">
-<meta name="twitter:description" content="A fully managed sales and retention system for aesthetic and wellness clinics in the UAE.">
-<meta name="twitter:image" content="https://fawrai.com/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Inter:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200..500&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
 <link rel="stylesheet" href="styles.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://fawrai.com/#org",
-      "name": "FawrAI",
-      "url": "https://fawrai.com/",
-      "email": "hello@fawrai.com",
-      "logo": "https://fawrai.com/og-image.png",
-      "sameAs": ["https://instagram.com/getfawrai"],
-      "areaServed": "United Arab Emirates",
-      "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" }
-    },
-    {
-      "@type": "Service",
-      "name": "Managed AI sales and retention system for clinics",
-      "provider": { "@id": "https://fawrai.com/#org" },
-      "serviceType": "Sales and retention operations",
-      "areaServed": "United Arab Emirates",
-      "audience": { "@type": "Audience", "audienceType": "Aesthetic and wellness clinics" },
-      "description": "FawrAI works every inbound enquiry a clinic receives: response, conversation, qualification, follow-up, objection handling, booking and retention, all in the clinic's own voice on WhatsApp and Instagram."
-    }
-  ]
-}
-</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -63,7 +30,7 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="FawrAI home">
-      <img src="logo-dark.png" alt="FawrAI" width="96" height="16">
+      <img src="logo-light-cropped.png" alt="FawrAI" width="86" height="14">
     </a>
     <nav class="nav__links" aria-label="Primary">
       <a href="#leak">The problem</a>
@@ -71,7 +38,7 @@
       <a href="#difference">The difference</a>
       <a href="https://roi.fawrai.com/">ROI calculator</a>
     </nav>
-    <a href="#contact" class="btn btn--primary nav__cta">Book a consultation</a>
+    <a href="#contact" class="nav__cta">Book a consultation</a>
     <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
@@ -80,7 +47,6 @@
     <a href="#leak">The problem</a>
     <a href="#system">The system</a>
     <a href="#difference">The difference</a>
-    <a href="#conversation">A real conversation</a>
     <a href="https://roi.fawrai.com/">ROI calculator</a>
     <a href="#contact" class="btn btn--primary">Book a consultation</a>
   </div>
@@ -88,240 +54,201 @@
 
 <main id="main">
 
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-title">
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <canvas class="hero__ribbon" id="ribbon" aria-hidden="true"></canvas>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+
     <div class="hero__inner">
-      <p class="eyebrow eyebrow--onnavy">Revenue infrastructure for clinics</p>
-      <h1 id="hero-title"><span>You already paid for the enquiry.</span>We make sure it becomes a booking.</h1>
-      <p class="hero__lead">A fully managed, AI-powered sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry answered, qualified, followed up and booked autonomously, in your clinic&rsquo;s voice.</p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--gold">Book a consultation <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-        <a href="#system" class="btn btn--onnavy-ghost" data-scroll>See how it works <span class="btn__arrow" aria-hidden="true">&darr;</span></a>
+      <div class="hero__copy">
+
+        <h1 id="hero-title" class="hero__title">
+          <span class="line"><span class="line__in in" style="--d:220ms">You already paid for the enquiry.</span></span>
+          <span class="line line--soft"><span class="line__in in" style="--d:360ms">We make sure it becomes a booking.</span></span>
+        </h1>
+
+        <p class="hero__lead in" style="--d:560ms">A fully managed, AI-powered sales and retention system for aesthetic and wellness clinics in the UAE. Every enquiry answered, qualified, followed up and booked autonomously, in your clinic&rsquo;s voice.</p>
+
+        <div class="hero__actions in" style="--d:700ms">
+          <a href="#contact" class="btn btn--primary">Book a consultation <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a href="#system" class="btn btn--ghost">See how it works <span class="btn__arrow" aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+
+      <aside class="run in" id="run" style="--d:900ms" aria-label="Illustration: FawrAI working one Instagram enquiry from first message to rebooking">
+        <header class="run__head">
+          <p class="run__title">Enquiry <b>·</b> Instagram</p>
+          <p class="run__status" id="runStatus"><i></i><span>running</span></p>
+        </header>
+        <p class="run__meta"><span>run <b id="runId">2041</b></span><span>ig_dm</span><span>en</span><span>clinic voice</span></p>
+
+        <div class="run__track">
+        <div class="run__rail" aria-hidden="true"><i id="railFill"></i></div>
+        <ol class="run__steps" id="runSteps">
+          <li class="run__step"><i class="node"></i><time>09:41</time><span class="lbl">enquiry in</span><span class="det">&ldquo;how much is botox?&rdquo;</span></li>
+          <li class="run__step"><i class="node"></i><time>09:41</time><span class="lbl">replied</span><span class="det">in 20 sec</span></li>
+          <li class="run__step"><i class="node"></i><time>09:52</time><span class="lbl">qualified</span><span class="det">forehead · switching</span></li>
+          <li class="run__step"><i class="node"></i><time>14:30</time><span class="lbl">followed up</span><span class="det">no reply since 09:52</span></li>
+          <li class="run__step"><i class="node"></i><time>next day</time><span class="lbl">booked</span><span class="det">sat 11:00 · on calendar</span></li>
+          <li class="run__step"><i class="node"></i><time>next day</time><span class="lbl">confirmed</span><span class="det">whatsapp</span></li>
+          <li class="run__step"><i class="node"></i><time>day before</time><span class="lbl">reminded</span><span class="det">attended</span></li>
+          <li class="run__step"><i class="node"></i><time>3 weeks after</time><span class="lbl">rebooked</span><span class="det">top-up</span></li>
+        </ol>
+        </div>
+
+        <footer class="run__log">
+          <p class="run__logh"><span><i></i>last runs</span><span>today</span></p>
+          <ul class="log" id="log" aria-hidden="true"></ul>
+        </footer>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 01 · THE LEAK -->
+  <section class="sec sec--leak" id="leak" aria-labelledby="leak-title">
+    <div class="wrap">
+      <div class="leak__head">
+        <p class="label rv"><b>01</b>The leak</p>
+        <h2 id="leak-title" class="rv">Established clinics don&rsquo;t have a lead problem.<br><span class="soft">They have a follow-up problem.</span></h2>
+        <div class="prose rv">
+          <p>The enquiries arrive, and your team replies to most of them. But not fast enough. By the time someone answers, the patient has messaged four or five other clinics, and the ones that replied first already have their attention.</p>
+          <p class="prose__em">The first hour is where the booking is won or lost.</p>
+        </div>
+      </div>
+
+      <figure class="stream rv" aria-labelledby="stream-cap">
+        <div class="stream__stage">
+          <canvas id="stream" aria-hidden="true"></canvas>
+          <span class="stream__tag stream__tag--in"><b>100%</b>Enquiries you pay to generate</span>
+          <span class="stream__reply" aria-hidden="true"><i></i>first reply</span>
+          <span class="stream__tag stream__tag--out"><b>42%</b>Enquiries still being worked after the first reply</span>
+          <span class="stream__gap" aria-hidden="true">the gap</span>
+        </div>
+        <figcaption id="stream-cap">The gap is revenue you already paid for. <a href="https://roi.fawrai.com/">The calculator shows yours <span aria-hidden="true">&rarr;</span></a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 02 · THE SYSTEM -->
+  <section class="sec sec--system" id="system" aria-labelledby="system-title">
+    <div class="wrap sys">
+      <div class="sys__head">
+        <p class="label rv"><b>02</b>The system</p>
+        <h2 id="system-title" class="rv">One enquiry, worked into a booking.<br><span class="soft">Then into a loyal patient.</span></h2>
+      </div>
+
+      <div class="sys__track">
+      <div class="sys__line" aria-hidden="true"><i id="sysFill"></i><b id="sysHead"></b></div>
+      <ol class="sys__steps" id="sysSteps">
+        <li class="sys__step">
+          <span class="sys__n">01</span>
+          <h3>Response</h3>
+          <p>Answered in seconds, in your clinic&rsquo;s voice. Any hour, any day.</p>
+        </li>
+        <li class="sys__step">
+          <span class="sys__n">02</span>
+          <h3>Conversation</h3>
+          <p>A real exchange in your clinic&rsquo;s voice, matching your tone and language. It answers what the patient actually asks: price, downtime, who treats them.</p>
+        </li>
+        <li class="sys__step">
+          <span class="sys__n">03</span>
+          <h3>Qualification</h3>
+          <p>Treatment interest, preferences and timing captured in the chat. Your team gets a summary, not a cold number.</p>
+        </li>
+        <li class="sys__step">
+          <span class="sys__n">04</span>
+          <h3>Objection handling</h3>
+          <p>Price is a question. Hesitation is a feeling. FawrAI handles both before they become a reason to leave.</p>
+        </li>
+        <li class="sys__step">
+          <span class="sys__n">05</span>
+          <h3>Booking</h3>
+          <p>The slot goes directly onto your calendar. Confirmation and reminders handled.</p>
+        </li>
+        <li class="sys__step">
+          <span class="sys__n">06</span>
+          <h3>Retention</h3>
+          <p>After the visit, the right message at the right time brings the patient back.</p>
+        </li>
+      </ol>
       </div>
     </div>
   </section>
 
-  <div class="stage">
+  <!-- 03 · THE DIFFERENCE -->
+  <section class="sec sec--diff" id="difference" aria-labelledby="diff-title">
+    <div class="wrap">
+      <p class="label rv"><b>03</b>The difference</p>
+      <h2 id="diff-title" class="rv">Most AI receptionists reply.<br><span class="soft">FawrAI runs the sale, autonomously.</span></h2>
 
-    <!-- The moving spine: one enquiry, carried forward as you read -->
-    <div class="spine" aria-hidden="true">
-      <div class="spine__line"></div>
-      <div class="spine__fill" id="spineFill"></div>
-      <div class="spine__dot" id="spineDot"></div>
-      <ol class="spine__stops" id="spineStops">
-        <li data-at="0.04"><b>09:41</b>enquiry in</li>
-        <li data-at="0.16"><b>09:41</b>replied</li>
-        <li data-at="0.30"><b>09:52</b>qualified</li>
-        <li data-at="0.44"><b>14:30</b>followed up</li>
-        <li data-at="0.58"><b>next day</b>booked</li>
-        <li data-at="0.70"><b>next day</b>confirmed</li>
-        <li data-at="0.83"><b>day before</b>reminded</li>
-        <li data-at="0.95"><b>3 weeks after</b>rebooked</li>
-      </ol>
+      <div class="cmp" role="table" aria-label="Most AI receptionists compared with FawrAI">
+        <div class="cmp__row cmp__row--head" role="row">
+          <span role="columnheader">Most AI receptionists</span>
+          <span role="columnheader">FawrAI</span>
+        </div>
+        <div class="cmp__row rv" role="row">
+          <span role="cell">Resets between conversations.</span>
+          <span role="cell">Remembers the patient: their last treatment, their preferences, their name.</span>
+        </div>
+        <div class="cmp__row rv" role="row">
+          <span role="cell">Answers, then waits to be messaged again.</span>
+          <span role="cell">Follows up on its own, in your clinic&rsquo;s voice, until there is an answer.</span>
+        </div>
+        <div class="cmp__row rv" role="row">
+          <span role="cell">Scripted, FAQ-style answers.</span>
+          <span role="cell">Personalised to each patient. Run for you, not by you.</span>
+        </div>
+        <div class="cmp__row rv" role="row">
+          <span role="cell">Stops at the first booking.</span>
+          <span role="cell">Handles reschedules, cancellations and no-shows, and keeps the patient after the visit.</span>
+        </div>
+      </div>
+      <p class="pull rv">Replying is easy. Building real client relationships is the job.</p>
     </div>
+  </section>
 
-    <!-- 01 · THE LEAK -->
-    <section class="block" id="leak" aria-labelledby="leak-title">
-      <p class="label reveal"><span>01</span>The leak</p>
-      <h2 id="leak-title" class="reveal">Established clinics don&rsquo;t have a lead problem.<br>They have a follow-up problem.</h2>
-      <div class="prose reveal">
-        <p>The enquiries arrive, and your team replies to most of them. But not fast enough. By the time someone answers, the patient has messaged four or five other clinics, and the ones that replied first already have their attention.</p>
-        <p>The first hour is where the booking is won or lost.</p>
+  <!-- 04 · CONTACT -->
+  <section class="sec sec--contact" id="contact" aria-labelledby="cta-title">
+    <div class="wrap cta">
+      <div class="cta__copy">
+        <p class="label rv"><b>04</b>Next</p>
+        <h2 id="cta-title" class="rv">Book a consultation.</h2>
+        <p class="rv">Twenty minutes. We look at your volume, your channels and where things stall, and tell you straight if FawrAI fits.</p>
+        <p class="cta__fit rv">Built for established aesthetic, dermatology, dental and wellness clinics in the UAE with steady inbound enquiries, where the bottleneck is response and follow-up, not awareness. If it&rsquo;s too early or not the right fit, we will say so on the call.</p>
+        <p class="cta__alt rv">Prefer email? <a href="mailto:hello@fawrai.com">hello@fawrai.com</a></p>
       </div>
 
-      <figure class="gap reveal" aria-labelledby="gap-cap">
-        <div class="gap__row">
-          <span class="gap__k">Enquiries you pay to generate</span>
-          <span class="gap__bar"><i style="--w:100%"></i></span>
-        </div>
-        <div class="gap__row">
-          <span class="gap__k">Enquiries still being worked after the first reply</span>
-          <span class="gap__bar gap__bar--short"><i style="--w:42%"></i></span>
-        </div>
-        <figcaption id="gap-cap">The gap is revenue you already paid for.<br><a href="https://roi.fawrai.com/">The calculator shows yours &rarr;</a></figcaption>
-      </figure>
-    </section>
-
-    <!-- 02 · THE SYSTEM -->
-    <section class="block" id="system" aria-labelledby="system-title">
-      <div class="headband reveal">
-        <p class="label label--onnavy"><span>02</span>The system</p>
-        <h2 id="system-title" class="h2--onnavy">One enquiry, worked into a booking.<br>Then into a loyal patient.</h2>
-      </div>
-
-      <ol class="steps">
-        <li class="step reveal">
-          <span class="step__mark">Response</span>
-          <p>Answered in seconds, in your clinic&rsquo;s voice. Any hour, any day.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__mark">Conversation</span>
-          <p>A real exchange in your clinic&rsquo;s voice, matching your tone and language. It answers what the patient actually asks: price, downtime, who treats them.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__mark">Qualification</span>
-          <p>Treatment interest, preferences and timing captured in the chat. Your team gets a summary, not a cold number.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__mark">Objection handling</span>
-          <p>Price is a question. Hesitation is a feeling. FawrAI handles both before they become a reason to leave.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__mark">Booking</span>
-          <p>The slot goes directly onto your calendar. Confirmation and reminders handled.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step__mark">Retention</span>
-          <p>After the visit, the right message at the right time brings the patient back.</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- 03 · THE DIFFERENCE -->
-    <section class="block" id="difference" aria-labelledby="diff-title">
-      <p class="label reveal"><span>03</span>The difference</p>
-      <h2 id="diff-title" class="reveal">Most AI receptionists reply.<br>FawrAI runs the sale, autonomously.</h2>
-      <dl class="contrast">
-        <div class="contrast__pair reveal">
-          <dt>Resets between conversations.</dt>
-          <dd>Remembers the patient: their last treatment, their preferences, their name.</dd>
-        </div>
-        <div class="contrast__pair reveal">
-          <dt>Answers, then waits to be messaged again.</dt>
-          <dd>Follows up on its own, in your clinic&rsquo;s voice, until there is an answer.</dd>
-        </div>
-        <div class="contrast__pair reveal">
-          <dt>Scripted, FAQ-style answers.</dt>
-          <dd>Personalised to each patient. Run for you, not by you.</dd>
-        </div>
-        <div class="contrast__pair reveal">
-          <dt>Stops at the first booking.</dt>
-          <dd>Handles reschedules, cancellations and no-shows, and keeps the patient after the visit.</dd>
-        </div>
-      </dl>
-      <p class="prose prose--pull reveal">Replying is easy. Building real client relationships is the job.</p>
-    </section>
-
-    <!-- 04 · IN SHORT -->
-    <section class="block" id="short" aria-labelledby="short-title">
-      <div class="headband reveal">
-        <p class="label label--onnavy"><span>04</span>In short</p>
-        <h2 id="short-title" class="h2--onnavy">What FawrAI is, and what it is not.</h2>
-      </div>
-      <dl class="isnot reveal">
-        <div>
-          <dt>It is</dt>
-          <dd>A fully managed sales and retention system</dd>
-          <dd>An intelligence that remembers every patient</dd>
-          <dd>A way to convert the enquiries you already pay for</dd>
-          <dd>Personalised to each patient, in your clinic&rsquo;s voice</dd>
-        </div>
-        <div>
-          <dt>It is not</dt>
-          <dd>A chatbot, or a tool your team has to run</dd>
-          <dd>Scripted, FAQ-style replies</dd>
-          <dd>A lead-generation service</dd>
-          <dd>An off-the-shelf product built for every market</dd>
-        </div>
-      </dl>
-    </section>
-
-    <!-- 05 · A REAL CONVERSATION -->
-    <section class="block" id="conversation" aria-labelledby="conv-title">
-      <p class="label reveal"><span>05</span>In practice</p>
-      <h2 id="conv-title" class="reveal">Qualification, inside a normal conversation.</h2>
-      <p class="prose reveal">Instagram enquiry. Friday night. Nobody online.</p>
-
-      <div class="thread reveal" id="thread" role="img" aria-label="A messaging exchange in which FawrAI answers an after-hours enquiry, qualifies the patient and books the appointment.">
-        <div class="msg msg--in" data-delay="200">
-          <p>Hi, how much is Botox for the forehead?</p><time>21:14</time>
-        </div>
-        <div class="msg msg--out" data-delay="900">
-          <p>Hi! Forehead is one area. That&rsquo;s AED&nbsp;900 with our nurse, or AED&nbsp;1,300 with Dr.&nbsp;Layla, who leads our injectables. Have you had it done before?</p><time>21:14</time>
-        </div>
-        <div class="msg msg--in" data-delay="1400">
-          <p>Once, last year. Wasn&rsquo;t happy, it dropped after a month.</p><time>21:15</time>
-        </div>
-        <div class="msg msg--out" data-delay="1800">
-          <p>That is usually under-dosing. Dr.&nbsp;Layla checks how your muscles move before deciding units, so most patients who switch stop having that problem. She has Friday 4pm and Saturday 11am available. Which one suits you best?</p><time>21:15</time>
-        </div>
-        <div class="msg msg--in" data-delay="1100">
-          <p>Saturday</p><time>21:16</time>
-        </div>
-        <div class="msg msg--out" data-delay="1400">
-          <p>Booked. Saturday 11am with Dr.&nbsp;Layla. I&rsquo;ll send you a reminder the day before.</p><time>21:16</time>
-        </div>
-      </div>
-      <p class="thread__cap reveal">Answered in under a minute, qualified in the conversation, and booked.</p>
-    </section>
-
-    <!-- 05 · THE ECONOMICS -->
-    <section class="block" id="economics" aria-labelledby="econ-title">
-      <div class="headband reveal">
-        <p class="label label--onnavy"><span>06</span>The economics</p>
-        <h2 id="econ-title" class="h2--onnavy">Same leads. Same spend. More of them on the calendar.</h2>
-      </div>
-      <ul class="figures reveal">
-        <li><b>Under 30 sec</b><span>Response time, day and night</span></li>
-        <li><b>Every enquiry</b><span>Worked past the first message</span></li>
-        <li><b>No new hire</b><span>The work runs without adding a person to your team</span></li>
-        <li><b>After the visit</b><span>A first visit becomes a loyal patient, brought back with no new spend</span></li>
-      </ul>
-      <p class="prose prose--pull reveal">More treatments, same spend. That is your ROI.</p>
-      <a href="https://roi.fawrai.com/" class="panel__link reveal">Run your clinic&rsquo;s numbers &rarr;</a>
-    </section>
-
-    <!-- 06 · FIT -->
-    <section class="block" id="fit" aria-labelledby="fit-title">
-      <p class="label reveal"><span>07</span>Fit</p>
-      <h2 id="fit-title" class="reveal">Built for established clinics with real demand.</h2>
-      <ul class="checks reveal">
-        <li>You already generate steady inbound enquiries.</li>
-        <li>Aesthetic, dermatology, dental or wellness, anywhere in the UAE.</li>
-        <li>The bottleneck is response and follow-up, not awareness.</li>
-      </ul>
-      <p class="prose reveal">If it&rsquo;s too early or not the right fit, we will say so on the call.</p>
-    </section>
-
-    <!-- 07 · CONTACT -->
-    <section class="block block--flush" id="contact" aria-labelledby="cta-title">
-      <div class="headband reveal">
-        <p class="label label--onnavy"><span>08</span>Next</p>
-        <h2 id="cta-title" class="h2--onnavy">Book a consultation.</h2>
-      </div>
-      <div class="cta reveal">
-        <div class="cta__copy">
-          <p>Twenty minutes. We look at your volume, your channels and where things stall, and tell you straight if FawrAI fits.</p>
-          <p class="cta__alt">Prefer email? <a href="mailto:hello@fawrai.com">hello@fawrai.com</a></p>
-        </div>
-        <form class="form" action="https://formspree.io/f/xjybanby" method="POST">
+      <form class="form rv" action="https://formspree.io/f/xjybanby" method="POST">
+        <div class="form__grid">
           <label>Clinic name<input type="text" name="clinic" autocomplete="organization" required></label>
           <label>Your name<input type="text" name="name" autocomplete="name" required></label>
           <label>Email<input type="email" name="email" autocomplete="email" required></label>
           <label>WhatsApp <span>(preferred)</span><input type="text" name="whatsapp" autocomplete="tel" inputmode="tel"></label>
-          <label>Monthly enquiry volume
-            <select name="lead_volume">
-              <option value="Under 200">Under 200</option>
-              <option value="200 to 400">200 to 400</option>
-              <option value="400 to 600">400 to 600</option>
-              <option value="600+">600+</option>
-            </select>
-          </label>
-          <label>How are enquiries handled at your clinic today?<textarea name="bottleneck" rows="3"></textarea></label>
-          <label class="form__check"><input type="checkbox" name="has_authority" value="yes"> I have decision-making authority at my clinic.</label>
+        </div>
+        <label>Monthly enquiry volume
+          <select name="lead_volume">
+            <option value="Under 200">Under 200</option>
+            <option value="200 to 400">200 to 400</option>
+            <option value="400 to 600">400 to 600</option>
+            <option value="600+">600+</option>
+          </select>
+        </label>
+        <label>How are enquiries handled at your clinic today?<textarea name="bottleneck" rows="3"></textarea></label>
+        <label class="form__check"><input type="checkbox" name="has_authority" value="yes"> I have decision-making authority at my clinic.</label>
+        <div class="form__foot">
           <button type="submit" class="btn btn--primary">Send message <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
           <p class="form__note">We reply within 24 hours.</p>
-        </form>
-      </div>
-    </section>
+        </div>
+      </form>
+    </div>
+  </section>
 
-  </div><!-- /stage -->
 </main>
 
 <footer class="foot">
-  <div class="foot__inner">
-    <img src="logo-light-cropped.png" alt="FawrAI" width="88" height="15" class="foot__logo">
-    <p class="foot__tag">Fully managed AI sales &amp; retention for UAE clinics.</p>
+  <div class="wrap foot__inner">
+    <img src="logo-light-cropped.png" alt="FawrAI" width="80" height="13" class="foot__logo">
+    <p class="foot__tag">Fully managed AI sales &amp; retention system for UAE clinics.</p>
     <p class="foot__meta">
       <a href="mailto:hello@fawrai.com">hello@fawrai.com</a>
       <a href="https://instagram.com/getfawrai">@getfawrai</a>
@@ -331,6 +258,7 @@
   </div>
 </footer>
 
-<script src="app.js" defer></script>
+<script src="hero.js" defer></script>
+<script src="sections.js" defer></script>
 </body>
 </html>
